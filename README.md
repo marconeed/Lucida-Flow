@@ -95,11 +95,15 @@ Use a palavra-chave let para declarar uma variável cujo valor pode mudar ao lon
 Snippet de código
 
 ```// Declara a variável 'pontuacao' e inicializa com 100```
+
 ```let pontuacao = 100```
+
 ```print("Pontuação inicial:", pontuacao) // Saída: 100```
 
 ```// O valor de 'pontuacao' pode ser modificado depois```
+
 ```pontuacao = 150```
+
 ```print("Pontuação final:", pontuacao) // Saída: 150```
 
 const - Constantes Imutáveis
@@ -108,6 +112,7 @@ Use a palavra-chave const para declarar uma constante. Uma vez que um valor é a
 Snippet de código
 
 ```const PI = 3.14159```
+
 ```print("O valor de PI é:", PI)```
 
 // A linha abaixo causaria um erro, pois não se pode reatribuir uma constante.
@@ -121,6 +126,7 @@ int e float: Para representar números. int para inteiros (ex: 10, 42) e float p
 Snippet de código
 
 ```let idade = 42```
+
 ```let preco = 19.99```
 
 string: Para representar texto. As strings podem ser criadas com aspas duplas (") ou simples (') e suportam caracteres de escape, como \n para uma nova linha.
@@ -128,6 +134,7 @@ string: Para representar texto. As strings podem ser criadas com aspas duplas ("
 Snippet de código
 
 ```let saudacao = "Olá, Mundo!"```
+
 ```let aviso = 'Cuidado:\nUse a barra invertida para escapar.'```
 
 A Lucida-Flow também suporta F-Strings para facilitar a formatação de texto:
@@ -135,7 +142,9 @@ A Lucida-Flow também suporta F-Strings para facilitar a formatação de texto:
 Snippet de código
 
 ```let versao = 1.0```
+
 ```let msg = f"Bem-vindo à Lucida-Flow v{versao}!"```
+
 ```print(msg) // Saída: Bem-vindo à Lucida-Flow v1.0!```
 
 bool: Representa valores lógicos, que só podem ser true (verdadeiro) ou false (falso). São a base de todas as decisões em programação.
@@ -143,6 +152,7 @@ bool: Representa valores lógicos, que só podem ser true (verdadeiro) ou false 
 Snippet de código
 
 ```let motor_ligado = true```
+
 ```let porta_aberta = false```
 
 null: Este tipo especial representa a ausência intencional de um valor. É o "vazio".
@@ -160,6 +170,7 @@ Você pode (e deve, para código mais robusto) declarar explicitamente o tipo de
 Snippet de código
 
 ```let nome: string = "Marco"```
+
 ```let idade: int = 35```
 
 // O Analisador Semântico lançaria um erro aqui, pois 123 não é uma string.
@@ -170,6 +181,7 @@ Se você não especificar um tipo, a Lucida-Flow assume que a variável é do ti
 Snippet de código
 
 ```let item_magico = "Poção de Cura" // O tipo de item_magico é inferido como 'string'```
+
 ```print(item_magico)```
 
 // Em outro ponto do programa, o item pode mudar
@@ -178,6 +190,7 @@ Snippet de código
 // Para forçar a flexibilidade, você pode declarar: let item_magico: any = "Poção"
 
 ```item_magico = 500 // Agora item_magico guarda um 'int'```
+
 ```print(item_magico)```
 
 Capítulo 3: Dando Vida aos Dados - Operadores e Expressões
@@ -203,12 +216,17 @@ Precedência de Operadores: A Lucida-Flow respeita a ordem matemática padrão d
 Snippet de código
 
 ```let soma = 10 + 5          // 15```
+
 ```let produto = 10 * 5         // 50```
+
 ```let resto = 10 % 3           // 1```
+
 ```let potencia = 2 ** 3          // 8```
 
 ```// Precedência em ação```
+
 ```let resultado1 = 10 + 5 * 2  // 10 + 10 = 20```
+
 ```let resultado2 = (10 + 5) * 2  // 15 * 2 = 30```
 
 3.2. Operadores de Comparação
@@ -229,8 +247,11 @@ Operadores de comparação avaliam a relação entre dois valores e sempre resul
 Snippet de código
 
 ```let idade = 25```
+
 ```print(idade == 25)  // Saída: true```
+
 ```print(idade > 30)   // Saída: false```
+
 ```print("lucida" != "flow") // Saída: true```
 
 3.3. Operadores Lógicos
@@ -245,9 +266,11 @@ not: Inverte um valor booleano (not true se torna false).
 Snippet de código
 
 ```let tem_chave = true```
+
 ```let porta_aberta = false```
 
 ```let pode_entrar = tem_chave and not porta_aberta```
+
 ```print("Pode entrar?", pode_entrar) // Saída: true```
 
 3.4. Operadores Bitwise (Avançado)
@@ -268,17 +291,22 @@ Para manipulação de baixo nível em números inteiros (int), a Lucida-Flow ofe
 Snippet de código
 
 ```let a = 10  // Binário: ...1010```
+
 ```let b = 12  // Binário: ...1100```
 
 ```// 1010 AND 1100 = 1000 (que é 8)```
+
 ```print("10 & 12 =", a & b) // Saída: 8```
 
 3.5. Expressões Convenientes (Açúcar Sintático)
 A Lucida-Flow oferece atalhos para tornar o código mais limpo.
 
 Atribuições Compostas: Um atalho para modificar uma variável com base no seu próprio valor.
+
 ```x += 1 é o mesmo que x = x + 1.```
+
 ```y *= 2 é o mesmo que y = y * 2.```
+
 ```(Funciona para +, -, *, /, **, %)```
 
 Operador Ternário: Um if/else em uma única linha para expressões.
@@ -287,7 +315,9 @@ condicao ? valor_se_true : valor_se_false
 Snippet de código
 
 ```let temperatura = 28```
+
 ```let status_ar = temperatura > 25 ? "Ligado" : "Desligado"```
+
 ```print("Status do Ar Condicionado:", status_ar) // Saída: Ligado```
 
 Parte II: Estruturando a Lógica
@@ -304,19 +334,29 @@ when simples:
 Snippet de código
 
 ```let idade = 20```
+
 ```when idade >= 18 {```
+
 ```    print("É maior de idade.")```
-}```
+
+``` }```
+
 ```when com otherwise (senão):```
+
 ```O bloco otherwise é executado se a condição do when for false.```
 
 Snippet de código
 
 ```let temperatura = 15```
+
 ```when temperatura > 25 {```
+
 ```    print("Ligar o ar condicionado.")```
+
 ```} otherwise {```
+
 ```    print("Manter o ar condicionado desligado.")```
+
 ```}```
 
 Múltiplas Condições com else when:
@@ -325,14 +365,23 @@ Para verificar várias condições em sequência, use else when. Isso torna o c�
 Snippet de código
 
 ```let nota = 85```
+
 ```when nota >= 90 {```
+
 ```    print("Nota: A")```
+
 ```} else when nota >= 80 {```
+
 ```    print("Nota: B") // Este bloco será executado```
+
 ```} else when nota >= 70 {```
+
 ```    print("Nota: C")```
+
 ```} otherwise {```
+
 ```    print("Nota: D")```
+
 ```}```
 
 4.2. Repetindo Tarefas com while
@@ -341,17 +390,27 @@ O loop while (enquanto) executa um bloco de código repetidamente, enquanto uma 
 Snippet de código
 
 ```let contador = 1```
+
 ```while contador <= 5 {```
+
 ```    print("Contagem:", contador)```
+
 ```    contador += 1```
+
 ```}```
 
 ``` #Saída:```
+
  ```#Contagem: 1```
+ 
  ```#Contagem: 2```
+ 
 ``` #Contagem: 3```
+
  ```#Contagem: 4```
+ 
 ``` #Contagem: 5```
+
 Cuidado: Certifique-se de que a condição do while eventualmente se torne false, caso contrário, você criará um loop infinito!
 
 4.3. Iterando sobre Coleções com for each
@@ -362,11 +421,17 @@ Snippet de código
 ```let nomes = ["Ana", "Bruno", "Carlos"]```
 
 ```for each nome in nomes {```
+
 ```    print(f"Olá, {nome}!")```
-}```
+
+``` }```
+
 ``` #Saída:```
+
 ``` #Olá, Ana!```
+
 ``` #Olá, Bruno!```
+
 ``` #Olá, Carlos!```
 
 4.4. Controle Fino de Loops: break e continue
@@ -379,26 +444,43 @@ continue: Pula a iteração atual e avança para a próxima.
 Snippet de código
 
  ```Exemplo combinando os dois```
+ 
 ```let numeros = [1, 2, -1, 4, 5, 99, 7]```
 
 ```for each n in numeros {```
+
    ``` when n < 0 {```
+   
         ```print("Número negativo encontrado, pulando com 'continue'...")```
+        
       ```  continue```
+      
  ```   }```
+ 
     ```when n > 50 {```
+    
       ```  print("Número muito grande encontrado, parando com 'break'...")```
+      
      ```   break```
+     
    ``` }```
+   
    ``` print("Processando número:", n)```
+   
 ```}```
 
 ``` #Saída:```
+
 ``` #Processando número: 1```
+
 ``` #Processando número: 2```
+
  ```#Número negativo encontrado, pulando com 'continue'...```
+ 
  ```#Processando número: 4```
+ 
 ``` #Processando número: 5```
+
  ```#Número muito grande encontrado, parando com 'break'...```
 
 Capítulo 5: Organizando Dados em Massa - Coleções
@@ -412,7 +494,9 @@ Criação: As listas são criadas com colchetes [], e seus elementos são separa
 Snippet de código
 
 ```let lista_vazia = []```
+
 ```let numeros = [1, 2, 3, 5, 8]```
+
 ```let itens_misturados = ["Maçã", 3, true]```
 
 Acesso e Modificação: Os elementos são acessados pela sua posição (índice), começando em zero.
@@ -420,11 +504,15 @@ Acesso e Modificação: Os elementos são acessados pela sua posição (índice)
 Snippet de código
 
 ```let frutas = ["Maçã", "Banana", "Laranja"]```
+
 ```print(frutas[0]) // Saída: Maçã```
 
 // Modificando um item
+
 ```frutas[1] = "Morango"```
+
 ```print(frutas) // Saída: ["Maçã", "Morango", "Laranja"]```
+
 ```Métodos Nativos ("Superpoderes"):```
 
 ```.append(item): Adiciona um item ao final da lista.```
@@ -432,16 +520,19 @@ Snippet de código
 Snippet de código
 
 ```numeros.append(13) // numeros agora é [1, 2, 3, 5, 8, 13]```
+
 ```.pop(): Remove e retorna o último item da lista.```
 
 Snippet de código
 
 ```let ultimo_numero = numeros.pop() // ultimo_numero é 13```
+
 ```.length(): Retorna a quantidade de itens na lista.```
 
 Snippet de código
 
 ```print(numeros.length()) // Saída: 5```
+
 ```5.2. Dicionários: Coleções Chave-Valor```
 
 Um dicionário é uma coleção não ordenada que armazena pares de chave: valor. É extremamente eficiente para procurar um valor quando você conhece a sua chave.
@@ -451,10 +542,14 @@ Criação: Dicionários são criados com chaves {}.
 Snippet de código
 
 ```let carro = {```
+
     ```"marca": "Lucida Motors",```
+    
    ``` "ano": 2025,```
+   
    ``` "eletrico": true```
-}```
+   
+``` }```
 
 Acesso e Modificação: O acesso e a modificação são feitos através da chave.
 
@@ -463,10 +558,13 @@ Snippet de código
 ```print(carro["marca"]) // Saída: Lucida Motors```
 
 ```// Modificando um valor existente```
+
 ```carro["ano"] = 2026```
 
 ```// Adicionando um novo par chave-valor```
+
 ```carro["cor"] = "azul"```
+
 ```Métodos Nativos:``````
 
 .keys(): Retorna uma lista com todas as chaves do dicionário.
@@ -478,6 +576,7 @@ Snippet de código
 Snippet de código
 
 ```let modelo = carro.get("modelo") // Retorna null, pois a chave não existe```
+
 ```let motor = carro.get("motor", "elétrico") // Retorna "elétrico"```
 
 5.3. Tuplas: Coleções Ordenadas e Imutáveis
@@ -488,11 +587,13 @@ Criação: Tuplas são criadas com parênteses ().
 Snippet de código
 
 ```let rgb = (255, 100, 50)```
+
 ```let registro = ("Marcos", 35, "Portugal")```
 
 ```print(rgb[0]) // Saída: 255```
 
 ```// A linha abaixo causaria um erro de runtime, pois tuplas são imutáveis```
+
 ```// rgb[0] = 200 // ERRO!```
 
 5.4. Bônus: Compreensão de Lista
@@ -501,7 +602,9 @@ A Lucida-Flow suporta uma sintaxe de "açúcar sintático" muito poderosa para c
 Snippet de código
 
 ```let numeros = [1, 2, 3, 4, 5]```
+
 ```// Cria uma nova lista com o quadrado de cada número```
+
 ```let quadrados = [n * n for each n in numeros]```
 
 ```print(quadrados) // Saída: [1, 4, 9, 16, 25]```
@@ -516,9 +619,12 @@ Como vimos, um processo é um bloco de código reutilizável. A sua forma mais c
 Snippet de código
 
 ```define process calcular_imposto(valor: float) -> float {```
+
     ```const TAXA = 0.2```
+    
     ```return valor * TAXA```
-}```
+    
+``` }```
 
 Até aqui, tudo simples. Mas a verdadeira magia acontece quando um processo é definido dentro de outro.
 
@@ -532,21 +638,31 @@ Vamos ver um exemplo poderoso que ilustra isso, uma "fábrica de funções":
 Snippet de código
 
 ```define process criar_multiplicador(multiplicador: int) -> any {```
+
    ``` // Este processo interno "captura" a variável 'multiplicador' do seu escopo pai.```
+   
   ```  define process funcao_interna(numero: int) -> int {```
+  
      ```   return numero * multiplicador```
+     
    ``` }```
     
    ``` // O processo 'criar_multiplicador' retorna a função interna.```
+   
    ``` return funcao_interna```
+   
 ```}```
 
 ```// Criamos duas funções diferentes usando a nossa "fábrica"```
+
 ```let dobrar = criar_multiplicador(2)```
+
 ```let triplicar = criar_multiplicador(3)```
 
 ```// Agora usamos as funções que foram criadas```
+
 ```print("Dobrar 10:", dobrar(10))     // Saída: 20```
+
 ```print("Triplicar 10:", triplicar(10))   // Saída: 30```
 
 6.3. Closures na Prática
@@ -570,15 +686,23 @@ O exemplo clássico é uma função mapa, que aplica uma função a cada item de
 Snippet de código
 
 ```define process mapa(lista, funcao) -> list {```
+
    ``` let nova_lista = []```
+   
    ``` for each item in lista {```
+   
      ```   nova_lista.append(funcao(item))```
+     
    ``` }```
+   
    ``` return nova_lista```
+   
 ```}```
 
 ```let numeros = [1, 2, 3]```
+
 ```let dobrados = mapa(numeros, dobrar) // Passando a função 'dobrar' como argumento!```
+
 ```print(dobrados) // Saída: [2, 4, 6]```
 
 6.5. Funções Anônimas (Lambdas)
@@ -589,6 +713,7 @@ Snippet de código
 ```let numeros = [1, 2, 3]```
 
 ```// Em vez de definir 'cubo' separadamente, a criamos diretamente na chamada```
+
 ```let cubos = mapa(numeros, process(n) { return n ** 3 })```
 
 ```print(cubos) // Saída: [1, 8, 27]```
@@ -602,7 +727,9 @@ A palavra-chave define type é o ponto de partida para criar um novo "molde" par
 Snippet de código
 
 ```define type Jogador {```
+
     ```// Membros (campos e métodos) vêm aqui.```
+    
 ```}```
 
 7.2. Campos, Métodos e o self
@@ -615,12 +742,17 @@ Dentro de um método, a palavra-chave self é uma referência à instância espe
 Snippet de código
 
 ```define type Jogador {```
+
     ```let nome = "Anônimo"```
+    
    ``` let vida = 100```
 
     ```define process apresentar(self) {```
+    
        ```print(f"Olá, meu nome é {self.nome} e tenho {self.vida} de vida.")```
+       
    ``` }```
+   
 ```}```
 
 7.3. O Construtor: __init__
@@ -629,11 +761,17 @@ Para inicializar cada objeto com valores únicos, usamos o método especial __in
 Snippet de código
 
 ```define type Jogador {```
+
    ``` define process __init__(self, nome_inicial: string) {```
+   
        ``` self.nome = nome_inicial```
+       
        ``` self.vida = 100```
+       
     ```}```
+    
    ``` //...```
+   
 ```}```
 
 let heroi = Jogador("Gandalf") // Passa "Gandalf" para o parâmetro nome_inicial
@@ -643,33 +781,53 @@ A herança permite que um tipo (filho) herde todos os campos e métodos de outro
 Snippet de código
 
 ```define type Inimigo {```
+
    ``` define process __init__(self, nome: string) {```
+   
        ``` self.nome = nome```
+       
    ``` }```
+   
     ```define process atacar(self) {```
+    
         ```print(f"{self.nome} ataca!")```
+        
    ``` }```
+   
 ```}```
 
 ```// Goblin herda de Inimigo```
+
 ```define type Goblin < Inimigo {```
+
     ```// O construtor do Goblin também chama o construtor do pai```
+    
    ``` define process __init__(self, nome: string) {```
+   
        ``` super.__init__(nome) // Inicializa a parte 'Inimigo' do Goblin```
+       
   ``` }```
 
     ```// Sobrepõe o método 'atacar'```
+    
     ```define process atacar(self) {```
+    
      ```   print("O Goblin ataca com uma adaga enferrujada!")```
+     
       ```  super.atacar() // Opcionalmente, chama a lógica do pai```
+      
     ```}```
+    
 ```}```
 
 ```let goblin_soldado = Goblin("Snaga")```
+
 ```goblin_soldado.atacar()```
-Saída:```
+
+``` Saída:```
 
 ```O Goblin ataca com uma adaga enferrujada!```
+
 ```Snaga ataca!``````
 
 Capítulo 8: Escrevendo Código à Prova de Falhas - Tratamento de Erros
@@ -681,10 +839,15 @@ Colocamos o código que pode falhar dentro de um bloco try. Se um erro (uma exce
 Snippet de código
 
 ```try {```
+
    ``` print("Tentando dividir por zero...")```
+   
    ``` let resultado = 10 / 0```
+   
 ```} catch (erro: Exception) {```
+
    ``` print("Um erro genérico foi capturado:", erro)```
+   
 ```}```
 
 8.2. Capturando Erros Específicos
@@ -693,12 +856,19 @@ Snippet de código
 Snippet de código
 
 ```import "fs" as fs```
+
 ```try {```
+
    ``` let conteudo = fs.read("arquivo_inexistente.txt")```
+
 ```} catch (e: FileNotFoundError) {```
+
   ```  print("ERRO DE FICHEIRO: Verifique o caminho e o nome do ficheiro.")```
+  
 ```} catch (e: Exception) {```
+
   ```  print("ERRO GENÉRICO: Ocorreu um problema inesperado:", e)```
+  
 ```}```
 
 A Lucida-Flow conhece os seguintes tipos de erro: Exception, ArithmeticError, FileNotFoundError, TypeError, ValueError, IndexError.
@@ -709,12 +879,19 @@ O bloco finally contém código de "limpeza" que é sempre executado, não impor
 Snippet de código
 
 ```print("Abrindo um recurso...")```
+
 ```try {```
+
     ```// ... código que pode dar erro ...```
+    
 ```} catch (e: Exception) {```
+
     ```print("Tratando o erro...")```
+    
 ```} finally {```
+
    ``` print("Fechando o recurso. Isto sempre executa!")```
+   
 ```}```
 
 Capítulo 9: O Ecossistema - Expandindo a Lucida-Flow com Módulos
@@ -746,26 +923,44 @@ Escreva a Lógica em Python: Crie funções que recebem uma lista de argumentos.
 Python
 
  ```lib/meu_plugin.py```
+ 
 ``` --- Lógica de Runtime ---```
+
 ```def lf_saudacao_especial(args):```
+
    ``` nome = args[0] if args else "estranho"```
+   
    ``` return f"Olá do meu plugin, {nome}!!! ✨"```
+   
 
 ```NATIVE_PLUGIN_MODULE = { "saudacao": lf_saudacao_especial }```
 
  ```--- Descrição Semântica ---```
+ 
 ```from lucida_symbols import *```
+
 ```def register_semantics():```
+
     ```string_type = BuiltInTypeSymbol('string')```
+    
     ```module_scope = ScopedSymbolTable(scope_name='meu_plugin', scope_level=2)```
+    
     ```module_scope.define(```
+    
         ```BuiltInFunctionSymbol(```
+        
            ``` name='saudacao',```
+           
             ```params=[VarSymbol('nome', string_type)],```
+            
             ```return_type=string_type```
+            
        ``` )```
+       
    ``` )```
-    return module_scope```
+   
+    ``` return module_scope```
+    
 ```Registre o Plugin em lucida_stdlib.py: Adicione o seu novo módulo aos dicionários NATIVE_MODULES e NATIVE_MODULES_SEMANTICS.```
 
 Use na Lucida-Flow:
@@ -773,5 +968,7 @@ Use na Lucida-Flow:
 Snippet de código
 
 ```import "meu_plugin" as plugin```
+
 ```print(plugin.saudacao("Marco"))```
+
 

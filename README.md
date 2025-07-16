@@ -94,13 +94,13 @@ Use a palavra-chave let para declarar uma variável cujo valor pode mudar ao lon
 
 Snippet de código
 
-```// Declara a variável 'pontuacao' e inicializa com 100
-let pontuacao = 100
-print("Pontuação inicial:", pontuacao) // Saída: 100```
+// Declara a variável 'pontuacao' e inicializa com 100
+```let pontuacao = 100```
+print("Pontuação inicial:", pontuacao) // Saída: 100
 
-```// O valor de 'pontuacao' pode ser modificado depois
-pontuacao = 150
-print("Pontuação final:", pontuacao) // Saída: 150```
+// O valor de 'pontuacao' pode ser modificado depois
+```pontuacao = 150```
+print("Pontuação final:", pontuacao) // Saída: 150
 
 const - Constantes Imutáveis
 Use a palavra-chave const para declarar uma constante. Uma vez que um valor é atribuído a uma constante, ele não pode ser alterado. Isso é útil para valores que devem permanecer fixos durante toda a execução do programa, como configurações ou valores matemáticos.

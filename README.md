@@ -619,7 +619,7 @@ Snippet de código
    ``` let vida = 100```
 
     ```define process apresentar(self) {```
-       ``` print(f"Olá, meu nome é {self.nome} e tenho {self.vida} de vida.")```
+       ```print(f"Olá, meu nome é {self.nome} e tenho {self.vida} de vida.")```
    ``` }```
 ```}```
 
@@ -656,14 +656,14 @@ Snippet de código
     ```// O construtor do Goblin também chama o construtor do pai```
    ``` define process __init__(self, nome: string) {```
        ``` super.__init__(nome) // Inicializa a parte 'Inimigo' do Goblin```
-  ```  }```
+  ``` }```
 
     ```// Sobrepõe o método 'atacar'```
     ```define process atacar(self) {```
      ```   print("O Goblin ataca com uma adaga enferrujada!")```
       ```  super.atacar() // Opcionalmente, chama a lógica do pai```
-    ```}
-```}
+    ```}```
+```}```
 
 ```let goblin_soldado = Goblin("Snaga")```
 ```goblin_soldado.atacar()```

@@ -326,12 +326,12 @@ while contador <= 5 {
     print("Contagem:", contador)
     contador += 1
 }
-# Saída:
-# Contagem: 1
-# Contagem: 2
-# Contagem: 3
-# Contagem: 4
-# Contagem: 5
+ Saída:
+ Contagem: 1
+ Contagem: 2
+ Contagem: 3
+ Contagem: 4
+ Contagem: 5
 Cuidado: Certifique-se de que a condição do while eventualmente se torne false, caso contrário, você criará um loop infinito!
 
 4.3. Iterando sobre Coleções com for each
@@ -344,10 +344,10 @@ let nomes = ["Ana", "Bruno", "Carlos"]
 for each nome in nomes {
     print(f"Olá, {nome}!")
 }
-# Saída:
-# Olá, Ana!
-# Olá, Bruno!
-# Olá, Carlos!
+ Saída:
+ Olá, Ana!
+ Olá, Bruno!
+ Olá, Carlos!
 4.4. Controle Fino de Loops: break e continue
 Às vezes, você precisa de mais controle sobre o comportamento de um loop while ou for each.
 
@@ -357,7 +357,7 @@ continue: Pula a iteração atual e avança para a próxima.
 
 Snippet de código
 
-# Exemplo combinando os dois
+ Exemplo combinando os dois
 let numeros = [1, 2, -1, 4, 5, 99, 7]
 
 for each n in numeros {
@@ -371,13 +371,13 @@ for each n in numeros {
     }
     print("Processando número:", n)
 }
-# Saída:
-# Processando número: 1
-# Processando número: 2
-# Número negativo encontrado, pulando com 'continue'...
-# Processando número: 4
-# Processando número: 5
-# Número muito grande encontrado, parando com 'break'...
+ Saída:
+ Processando número: 1
+ Processando número: 2
+ Número negativo encontrado, pulando com 'continue'...
+ Processando número: 4
+ Processando número: 5
+ Número muito grande encontrado, parando com 'break'...
 
 Capítulo 5: Organizando Dados em Massa - Coleções
 Raramente trabalhamos com dados isolados. Na maioria das vezes, precisamos de agrupar informações: uma lista de utilizadores, um conjunto de configurações, as coordenadas de um ponto. A Lucida-Flow oferece estruturas de dados poderosas, chamadas de coleções, para lidar com esses cenários.
@@ -709,15 +709,15 @@ Escreva a Lógica em Python: Crie funções que recebem uma lista de argumentos.
 
 Python
 
-# lib/meu_plugin.py
-# --- Lógica de Runtime ---
+ lib/meu_plugin.py
+ --- Lógica de Runtime ---
 def lf_saudacao_especial(args):
     nome = args[0] if args else "estranho"
     return f"Olá do meu plugin, {nome}!!! ✨"
 
 NATIVE_PLUGIN_MODULE = { "saudacao": lf_saudacao_especial }
 
-# --- Descrição Semântica ---
+ --- Descrição Semântica ---
 from lucida_symbols import *
 def register_semantics():
     string_type = BuiltInTypeSymbol('string')

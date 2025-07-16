@@ -51,7 +51,7 @@ Vamos criar o nosso "Olá, Mundo!". Crie um novo arquivo chamado ola.lf e escrev
 
 Snippet de código
 
-print("Olá, Mundo da Lucida-Flow!")
+```print("Olá, Mundo da Lucida-Flow!")```
 A função print() é uma função nativa da linguagem usada para exibir texto no console.
 
 1.5. Executando o Script

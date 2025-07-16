@@ -451,17 +451,17 @@ Snippet de código
 
    ``` when n < 0 {```
    
-        ```print("Número negativo encontrado, pulando com 'continue'...")```
+        print("Número negativo encontrado, pulando com 'continue'...")
         
-      ```  continue```
+         continue
       
- ```   }```
+ ```}```
  
-    ```when n > 50 {```
+    when n > 50 {
     
-      ```  print("Número muito grande encontrado, parando com 'break'...")```
+      print("Número muito grande encontrado, parando com 'break'...")
       
-     ```   break```
+       break
      
    ``` }```
    
@@ -543,7 +543,7 @@ Snippet de código
 
 ```let carro = {```
 
-    ```"marca": "Lucida Motors",```
+    "marca": "Lucida Motors",
     
    ``` "ano": 2025,```
    
@@ -620,9 +620,9 @@ Snippet de código
 
 ```define process calcular_imposto(valor: float) -> float {```
 
-    ```const TAXA = 0.2```
+    const TAXA = 0.2
     
-    ```return valor * TAXA```
+    return valor * TAXA
     
 ``` }```
 
@@ -643,7 +643,7 @@ Snippet de código
    
   ```  define process funcao_interna(numero: int) -> int {```
   
-     ```   return numero * multiplicador```
+        return numero * multiplicador
      
    ``` }```
     
@@ -691,7 +691,7 @@ Snippet de código
    
    ``` for each item in lista {```
    
-     ```   nova_lista.append(funcao(item))```
+        nova_lista.append(funcao(item))
      
    ``` }```
    
@@ -728,7 +728,7 @@ Snippet de código
 
 ```define type Jogador {```
 
-    ```// Membros (campos e métodos) vêm aqui.```
+    // Membros (campos e métodos) vêm aqui.
     
 ```}```
 
@@ -743,13 +743,13 @@ Snippet de código
 
 ```define type Jogador {```
 
-    ```let nome = "Anônimo"```
+    let nome = "Anônimo"
     
    ``` let vida = 100```
 
-    ```define process apresentar(self) {```
+    define process apresentar(self) {
     
-       ```print(f"Olá, meu nome é {self.nome} e tenho {self.vida} de vida.")```
+       print(f"Olá, meu nome é {self.nome} e tenho {self.vida} de vida.")
        
    ``` }```
    
@@ -764,11 +764,11 @@ Snippet de código
 
    ``` define process __init__(self, nome_inicial: string) {```
    
-       ``` self.nome = nome_inicial```
+        self.nome = nome_inicial
        
-       ``` self.vida = 100```
+        self.vida = 100
        
-    ```}```
+    }
     
    ``` //...```
    
@@ -784,13 +784,13 @@ Snippet de código
 
    ``` define process __init__(self, nome: string) {```
    
-       ``` self.nome = nome```
+       self.nome = nome
        
    ``` }```
    
-    ```define process atacar(self) {```
+    define process atacar(self) {
     
-        ```print(f"{self.nome} ataca!")```
+        print(f"{self.nome} ataca!")
         
    ``` }```
    
@@ -800,23 +800,23 @@ Snippet de código
 
 ```define type Goblin < Inimigo {```
 
-    ```// O construtor do Goblin também chama o construtor do pai```
+    // O construtor do Goblin também chama o construtor do pai
     
    ``` define process __init__(self, nome: string) {```
-   
-       ``` super.__init__(nome) // Inicializa a parte 'Inimigo' do Goblin```
+  
+        super.__init__(nome) // Inicializa a parte 'Inimigo' do Goblin
        
   ``` }```
 
-    ```// Sobrepõe o método 'atacar'```
+    // Sobrepõe o método 'atacar'
     
-    ```define process atacar(self) {```
+    define process atacar(self) {
     
-     ```   print("O Goblin ataca com uma adaga enferrujada!")```
+        print("O Goblin ataca com uma adaga enferrujada!")
      
-      ```  super.atacar() // Opcionalmente, chama a lógica do pai```
+        super.atacar() // Opcionalmente, chama a lógica do pai
       
-    ```}```
+    }
     
 ```}```
 
@@ -882,11 +882,11 @@ Snippet de código
 
 ```try {```
 
-    ```// ... código que pode dar erro ...```
+    // ... código que pode dar erro ...
     
 ```} catch (e: Exception) {```
 
-    ```print("Tratando o erro...")```
+    print("Tratando o erro...")
     
 ```} finally {```
 
@@ -941,25 +941,25 @@ Python
 
 ```def register_semantics():```
 
-    ```string_type = BuiltInTypeSymbol('string')```
+    string_type = BuiltInTypeSymbol('string')
     
-    ```module_scope = ScopedSymbolTable(scope_name='meu_plugin', scope_level=2)```
+    module_scope = ScopedSymbolTable(scope_name='meu_plugin', scope_level=2)
     
-    ```module_scope.define(```
+    module_scope.define(
     
-        ```BuiltInFunctionSymbol(```
+        BuiltInFunctionSymbol(
         
-           ``` name='saudacao',```
+            name='saudacao',
            
-            ```params=[VarSymbol('nome', string_type)],```
+            params=[VarSymbol('nome', string_type)],
             
-            ```return_type=string_type```
+            return_type=string_type
             
-       ``` )```
+        )
        
    ``` )```
    
-    ``` return module_scope```
+     return module_scope
     
 ```Registre o Plugin em lucida_stdlib.py: Adicione o seu novo módulo aos dicionários NATIVE_MODULES e NATIVE_MODULES_SEMANTICS.```
 

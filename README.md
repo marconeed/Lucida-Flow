@@ -107,8 +107,8 @@ Use a palavra-chave const para declarar uma constante. Uma vez que um valor é a
 
 Snippet de código
 
-```const PI = 3.14159
-print("O valor de PI é:", PI)```
+```const PI = 3.14159```
+print("O valor de PI é:", PI)
 
 // A linha abaixo causaria um erro, pois não se pode reatribuir uma constante.
 // O Analisador Semântico da Lucida-Flow protege você contra isso!

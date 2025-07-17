@@ -972,3 +972,6 @@ Snippet de código
 ```print(plugin.saudacao("Marco"))```
 
 
+## Apoie o Projeto
+
+A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da linguagem e quer ver o seu desenvolvimento continuar, considere [tornar-se um patrocinador no GitHub Sponsors](https://github.com/sponsors/marconeed)! O seu apoio é fundamental para a manutenção e evolução do projeto.

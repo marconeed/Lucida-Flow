@@ -6,6 +6,7 @@ Gostaríamos de agradecer imensamente aos nossos incríveis patrocinadores que a
 
 ## Patronos (Patrons)
 *(Esta secção é para os logos dos nossos apoiantes de $50/mês. Torne-se o primeiro!)*
+- ...
 
 ## Colaboradores (Contributors)
 *(Apoiantes de $10/mês ou mais)*

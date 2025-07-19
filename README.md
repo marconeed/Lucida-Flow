@@ -1,3 +1,5 @@
+Volume 1: O Manual de Referência: https://www.amazon.com.br/dp/B0FJ1HYJN8
+
 # Fluindo com Código: O Guia Definitivo da Linguagem Lucida-Flow
 Subtítulo: Da Automação de Scripts à Criação de Sistemas Extensíveis
 

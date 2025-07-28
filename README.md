@@ -1,4 +1,5 @@
 [Volume 1: O Manual de Referência](https://www.amazon.com.br/dp/B0FJ1HYJN8)
+[Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
 
 # Fluindo com Código: O Guia Definitivo da Linguagem Lucida-Flow
 Subtítulo: Da Automação de Scripts à Criação de Sistemas Extensíveis

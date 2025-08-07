@@ -1,4 +1,5 @@
 [Volume 1: O Manual de Referência](https://www.amazon.com.br/dp/B0FJ1HYJN8)
+[Volume 2: Construindo Aplicações Gráficas](https://www.amazon.com.br/dp/B0FLJ8PNYJ)
 
 [Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
 

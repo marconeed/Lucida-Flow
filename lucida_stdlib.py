@@ -6,6 +6,10 @@ import time
 import os
 import datetime
 
+from lib.web import NATIVE_WEB_MODULE, register_semantics as register_web_semantics
+from lib.json import NATIVE_JSON_MODULE, register_semantics as register_json_semantics
+from lib.dado import NATIVE_DADO_MODULE, register_semantics as register_dado_semantics
+
 # --- Importações dos Símbolos da Lucida-Flow ---
 # (Necessário para a parte de descrição semântica)
 from lucida_symbols import (
@@ -107,7 +111,10 @@ NATIVE_MODULES = {
         "now": lf_datetime_now,
         "format": lf_datetime_format,
         "parse": lf_datetime_parse,
-    }
+    },
+    "web": NATIVE_WEB_MODULE,
+    "json": NATIVE_JSON_MODULE,
+    "dado": NATIVE_DADO_MODULE,
 }
 
 # ==============================================================================
@@ -199,6 +206,9 @@ NATIVE_MODULES_SEMANTICS = {
     "time": time_semantic_scope,
     "fs": fs_semantic_scope,
     "datetime": datetime_semantic_scope,
+    "web": register_web_semantics(),
+    "json": register_json_semantics(),
+     "dado": register_dado_semantics(),
 }
 
 # ==============================================================================
@@ -221,6 +231,7 @@ NATIVE_TYPE_METHODS = {
         # O slice do Python pode receber até 3 args (start, stop, step),
         # aqui vamos simplificar para start e stop.
         'slice': lambda instance, args: instance[args[0]:args[1]],
+        'length': lambda instance, args: len(instance),
     },
     'list': {
         # 'pop', 'sort', etc. podem ser adicionados aqui no futuro.

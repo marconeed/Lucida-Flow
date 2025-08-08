@@ -58,6 +58,7 @@ class SemanticAnalyzer(NodeVisitor):
             'starts_with': BuiltInFunctionSymbol(name='starts_with', params=[VarSymbol('prefix', string_type)], return_type=bool_type),
             'ends_with': BuiltInFunctionSymbol(name='ends_with', params=[VarSymbol('suffix', string_type)], return_type=bool_type),
             'slice': BuiltInFunctionSymbol(name='slice', params=[VarSymbol('start', int_type), VarSymbol('end', int_type)], return_type=string_type),
+            'length': BuiltInFunctionSymbol(name='length', params=[], return_type=int_type),
         }
         self._native_type_method_templates['string'] = string_methods
         
@@ -363,6 +364,9 @@ class SemanticAnalyzer(NodeVisitor):
         left_type = self.visit(node.left_node)
         right_type = self.visit(node.right_node)
         op = node.op_token
+
+        if op.type == 'PLUS' and (left_type.name == 'string' or right_type.name == 'string'):
+            return self.current_scope.lookup('string')
         
         if not left_type or not right_type:
             # Se um dos lados não tem tipo, o resultado é desconhecido
@@ -771,6 +775,15 @@ class SemanticAnalyzer(NodeVisitor):
     def visit_IndexAccessNode(self, node):
         collection_type = self.visit(node.object_node)
         index_type = self.visit(node.index_node)
+
+        if collection_type.name == 'any':
+            return self.current_scope.lookup('any')
+
+        elif isinstance(collection_type, self.current_scope.lookup('string').__class__):
+             if index_type.name != 'int':
+                self.error("O índice de uma string deve ser um inteiro.", node.index_node)
+             # O resultado de aceder a um caractere de uma string é outra string
+             return self.current_scope.lookup('string')
 
         if isinstance(collection_type, ListTypeSymbol):
             if index_type.name != 'int':

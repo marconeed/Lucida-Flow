@@ -1,3 +1,9 @@
+[Volume 1: O Manual de Referência](https://www.amazon.com.br/dp/B0FJ1HYJN8)
+
+[Volume 2: Construindo Aplicações Gráficas](https://www.amazon.com.br/dp/B0FLJ8PNYJ)
+
+[Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
+
 # Fluindo com Código: O Guia Definitivo da Linguagem Lucida-Flow
 Subtítulo: Da Automação de Scripts à Criação de Sistemas Extensíveis
 
@@ -972,3 +978,6 @@ Snippet de código
 ```print(plugin.saudacao("Marco"))```
 
 
+## Apoie o Projeto
+
+A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da linguagem e quer ver o seu desenvolvimento continuar, considere [tornar-se um patrocinador no GitHub Sponsors](https://github.com/sponsors/marconeed)! O seu apoio é fundamental para a manutenção e evolução do projeto.

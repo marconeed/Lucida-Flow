@@ -663,16 +663,14 @@ class Interpreter(NodeVisitor):
                 self.error(f"O módulo '{obj.name}' não possui um membro chamado '{attr_name}'.", node.attribute_token)
             return member
 
-        # --- LÓGICA ADICIONADA PARA ENUMS ---
+        # Caso 3: Acesso em um Enum (ex: Status.ATIVO)
         elif isinstance(obj, LfEnum):
-            # Acessando um membro de um enum, ex: Status.ATIVO
             member = obj.members.get(attr_name)
             if member is None:
                 self.error(f"O enum '{obj.name}' não possui um membro chamado '{attr_name}'.", node.attribute_token)
-            return member # Retorna o objeto LfEnumMember
-        # --- FIM DA ADIÇÃO ---
+            return member
 
-        # Caso 3: Acesso em uma instância de um tipo Lucida (ex: meu_carro.marca)
+        # Caso 4: Acesso em uma instância de um tipo Lucida (ex: meu_carro.marca)
         elif isinstance(obj, LfInstance):
             if attr_name in obj.fields:
                 return obj.fields[attr_name]
@@ -688,11 +686,23 @@ class Interpreter(NodeVisitor):
                 current_type = current_type.parent_type_symbol
             self.error(f"O atributo ou método '{attr_name}' não foi encontrado no tipo '{obj.type_symbol.name}'.", node.attribute_token)
 
-        # Caso 4 (o que adicionamos): Acesso em um tipo nativo (string, lista, etc.)
-        else:
-            py_type_name = type(obj).__name__ # 'str', 'list', 'int', 'dict'
+        # --- INÍCIO DA CORREÇÃO ---
+        # Caso 5: Acesso em um dicionário Python (usado pelo nosso módulo 'gui')
+        elif isinstance(obj, dict):
+            if attr_name in obj:
+                return obj[attr_name]
+            # Se a chave não existe, procuramos nos métodos nativos de dicionário
+            if 'dict' in NATIVE_TYPE_METHODS and attr_name in NATIVE_TYPE_METHODS['dict']:
+                python_callable = NATIVE_TYPE_METHODS['dict'][attr_name]
+                return BoundNativeMethod(instance=obj, python_callable=python_callable)
+            
+            self.error(f"A chave '{attr_name}' não foi encontrada no dicionário.", node.attribute_token)
+        # --- FIM DA CORREÇÃO ---
 
-            lf_type_name = {'str': 'string', 'list': 'list', 'dict': 'dict'}.get(py_type_name)
+        # Caso 6: Acesso em um tipo nativo (string, lista, etc.)
+        else:
+            py_type_name = type(obj).__name__
+            lf_type_name = {'str': 'string', 'list': 'list', 'tuple': 'tuple'}.get(py_type_name)
 
             if lf_type_name and lf_type_name in NATIVE_TYPE_METHODS:
                 methods_for_type = NATIVE_TYPE_METHODS[lf_type_name]

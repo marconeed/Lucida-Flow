@@ -955,7 +955,8 @@ Use na Lucida-Flow:
 Snippet de código
 
 ```import "meu_plugin" as plugin
-   print(plugin.saudacao("Marco")```
+   print(plugin.saudacao("Marco")
+```
 
 
 ## Apoie o Projeto

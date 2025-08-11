@@ -1091,48 +1091,87 @@ Conceitos a Aprender
 
 O Código (contador.lf)
 
-# contador.lf
-
-```print("A construir a aplicação de contador...")
-
+```# contador.lf
+print("A construir a aplicação de contador...")
 # --- 1. Estado da Aplicação ---
-
 # A variável que guarda o número atual.
-
 let valor_contador = 0
-
 # --- 2. Funções de Callback (O que os botões fazem) ---
-
 # Esta função é chamada pelo botão '+'
-
 define process incrementar() {
-
     valor_contador += 1
-    
     # Atualiza o texto do rótulo com o novo valor
-    
     gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
-    
 }
-
 # Esta função é chamada pelo botão '-'
-
 define process decrementar() {
-
     valor_contador -= 1
-    
     gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
-    
 }
-
 # --- 3. Construção da Interface Gráfica ---
-
 gui.criar_rotulo("rotulo_contador", f"Valor: {valor_contador}")
-
 gui.criar_botao("botao_mais", "+", "incrementar")
-
 gui.criar_botao("botao_menos", "-", "decrementar")
 ```
 
 Executando o Projeto Para executar este projeto, o anfitrião gui_host.py deve estar configurado para carregar o ficheiro contador.lf. Ao ser executado, uma janela simples aparecerá, e os botões irão atualizar o valor do contador em tempo real, demonstrando a interação entre a lógica Lucida-Flow e a interface gráfica.
 
+Capítulo 2: O Relógio Digital (Foco em Atualizações Automáticas)
+
+Introdução
+
+No nosso primeiro projeto, a interface só era atualizada quando o utilizador clicava num botão. Mas e se quisermos que uma aplicação se atualize sozinha? Neste capítulo, construiremos um relógio digital que mostra a hora atual e se atualiza a cada segundo, sem qualquer intervenção do utilizador.
+
+Este projeto é a introdução perfeita à programação orientada a eventos baseados no tempo, uma técnica essencial para criar animações, jogos e qualquer aplicação que precise de "viver" e mudar com o tempo.
+
+Conceitos a Aprender
+
+•	Eventos Agendados: O conceito de agendar uma função para ser executada no futuro.
+
+•	Loops Recursivos de Atualização: A técnica de uma função se agendar a si mesma repetidamente para criar um ciclo de atualização contínuo.
+
+•	Módulos Nativos: Usar o módulo datetime para obter e formatar a hora atual.
+
+•	Gestão de Estado: Manter o "motor" do relógio a funcionar através de uma variável de estado.
+
+O Código (relogio.lf)
+
+A beleza deste projeto está na sua simplicidade. A lógica principal é uma única função que faz três coisas: obtém a hora, atualiza a interface e agenda a sua próxima execução.
+Ação: Crie um ficheiro chamado relogio.lf e cole o seguinte código.
+
+# relogio.lf
+import "datetime" as dt
+
+print("A construir a aplicação de relógio digital...")
+
+# --- Função de Lógica Principal ---
+define process atualizar_relogio() {
+    # 1. Obtém o timestamp atual do sistema
+    let agora = dt.now()
+    
+    # 2. Formata o timestamp para o formato de Hora:Minuto:Segundo
+    let hora_formatada = dt.format(agora, "%H:%M:%S")
+    
+    # 3. Atualiza o texto do rótulo na interface gráfica
+    gui.alterar_texto("visor_relogio", hora_formatada)
+    
+    # 4. A MÁGICA: Agenda esta mesma função para ser chamada novamente
+    #    daqui a 1 segundo (1000 milissegundos).
+    gui.agendar_atualizacao(1000, "atualizar_relogio")
+}
+
+
+# --- Construção da Interface Gráfica ---
+
+# Usamos o nosso rótulo especial de resultado para dar um estilo de relógio digital
+gui.criar_rotulo_resultado("visor_relogio", "A carregar...")
+# Inicia o ciclo de atualização pela primeira vez, que depois continuará para sempre
+atualizar_relogio()
+
+Executando o Projeto
+1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("relogio.lf", 'r', encoding='utf-8') as f:.
+2.	Execute o anfitrião no seu terminal: python gui_host.py.
+Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
+Desafios para Expansão
+•	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
+•	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.

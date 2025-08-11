@@ -1170,7 +1170,15 @@ Executando o Projeto
 Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
 
 Desafios para Expansão
-
 •	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
 
 •	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.
+
+Executando o Projeto
+1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("relogio.lf", 'r', encoding='utf-8') as f:.
+2.	Execute o anfitrião no seu terminal: python gui_host.py.
+Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
+Desafios para Expansão
+•	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
+•	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.
+

@@ -519,9 +519,9 @@ Snippet de código
 
 ```print(frutas) // Saída: ["Maçã", "Morango", "Laranja"]```
 
-```Métodos Nativos ("Superpoderes"):```
+Métodos Nativos ("Superpoderes"):
 
-```.append(item): Adiciona um item ao final da lista.```
+.append(item): Adiciona um item ao final da lista.
 
 Snippet de código
 

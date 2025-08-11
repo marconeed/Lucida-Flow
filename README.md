@@ -47,9 +47,10 @@ A Lucida-Flow é um projeto de código aberto. Para começar, clone o repositór
 
 Bash
 
-```git clone https://github.com/marconeed/Lucida-Flow```
+```git clone https://github.com/marconeed/Lucida-Flow
 
-```cd Lucida-Flow-main```
+cd Lucida-Flow-main
+```
 
 1.3. A Anatomia de um Script Lucida-Flow
 Todos os arquivos de código da Lucida-Flow usam a extensão .lf. São simples arquivos de texto que você pode criar e editar em qualquer editor de código, como o VS Code.

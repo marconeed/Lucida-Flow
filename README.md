@@ -967,6 +967,7 @@ A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da 
 
 
 # Construindo Aplicações Gráficas com Lucida-Flow
+Subtítulo: Do Terminal à Janela: Criando GUIs com Lucida-Flow
 
 Introdução: Do Terminal à Janela
 

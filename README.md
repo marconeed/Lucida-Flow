@@ -1140,39 +1140,37 @@ O Código (relogio.lf)
 A beleza deste projeto está na sua simplicidade. A lógica principal é uma única função que faz três coisas: obtém a hora, atualiza a interface e agenda a sua próxima execução.
 Ação: Crie um ficheiro chamado relogio.lf e cole o seguinte código.
 
+```
 # relogio.lf
 import "datetime" as dt
-
 print("A construir a aplicação de relógio digital...")
-
 # --- Função de Lógica Principal ---
 define process atualizar_relogio() {
     # 1. Obtém o timestamp atual do sistema
     let agora = dt.now()
-    
     # 2. Formata o timestamp para o formato de Hora:Minuto:Segundo
     let hora_formatada = dt.format(agora, "%H:%M:%S")
-    
     # 3. Atualiza o texto do rótulo na interface gráfica
     gui.alterar_texto("visor_relogio", hora_formatada)
-    
     # 4. A MÁGICA: Agenda esta mesma função para ser chamada novamente
     #    daqui a 1 segundo (1000 milissegundos).
     gui.agendar_atualizacao(1000, "atualizar_relogio")
 }
-
-
 # --- Construção da Interface Gráfica ---
-
 # Usamos o nosso rótulo especial de resultado para dar um estilo de relógio digital
 gui.criar_rotulo_resultado("visor_relogio", "A carregar...")
 # Inicia o ciclo de atualização pela primeira vez, que depois continuará para sempre
 atualizar_relogio()
+```
 
 Executando o Projeto
+
 1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("relogio.lf", 'r', encoding='utf-8') as f:.
 2.	Execute o anfitrião no seu terminal: python gui_host.py.
 Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
+
 Desafios para Expansão
+
 •	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
+
 •	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.

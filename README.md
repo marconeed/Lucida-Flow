@@ -1091,7 +1091,8 @@ Conceitos a Aprender
 
 O Código (contador.lf)
 
-```# contador.lf
+```
+# contador.lf
 print("A construir a aplicação de contador...")
 # --- 1. Estado da Aplicação ---
 # A variável que guarda o número atual.

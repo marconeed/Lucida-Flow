@@ -527,19 +527,19 @@ Snippet de código
 
 ```numeros.append(13) // numeros agora é [1, 2, 3, 5, 8, 13]```
 
-```.pop(): Remove e retorna o último item da lista.```
+.pop(): Remove e retorna o último item da lista.
 
 Snippet de código
 
 ```let ultimo_numero = numeros.pop() // ultimo_numero é 13```
 
-```.length(): Retorna a quantidade de itens na lista.```
+.length(): Retorna a quantidade de itens na lista.
 
 Snippet de código
 
 ```print(numeros.length()) // Saída: 5```
 
-```5.2. Dicionários: Coleções Chave-Valor```
+5.2. Dicionários: Coleções Chave-Valor
 
 Um dicionário é uma coleção não ordenada que armazena pares de chave: valor. É extremamente eficiente para procurar um valor quando você conhece a sua chave.
 
@@ -571,7 +571,7 @@ Snippet de código
 
 ```carro["cor"] = "azul"```
 
-```Métodos Nativos:``````
+Métodos Nativos:
 
 .keys(): Retorna uma lista com todas as chaves do dicionário.
 
@@ -830,11 +830,11 @@ Snippet de código
 
 ```goblin_soldado.atacar()```
 
-``` Saída:```
+Saída:
 
-```O Goblin ataca com uma adaga enferrujada!```
+O Goblin ataca com uma adaga enferrujada!
 
-```Snaga ataca!``````
+Snaga ataca!
 
 Capítulo 8: Escrevendo Código à Prova de Falhas - Tratamento de Erros
 Programas robustos não quebram ao encontrar situações inesperadas. Eles as tratam. A Lucida-Flow oferece um sistema completo de tratamento de exceções com try, catch e finally.
@@ -967,7 +967,7 @@ Python
    
      return module_scope
     
-```Registre o Plugin em lucida_stdlib.py: Adicione o seu novo módulo aos dicionários NATIVE_MODULES e NATIVE_MODULES_SEMANTICS.```
+Registre o Plugin em lucida_stdlib.py: Adicione o seu novo módulo aos dicionários NATIVE_MODULES e NATIVE_MODULES_SEMANTICS.
 
 Use na Lucida-Flow:
 

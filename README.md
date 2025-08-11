@@ -81,9 +81,11 @@ A Lucida-Flow é um projeto de código aberto. Para começar, clone o repositór
 
 Bash
 
-```git clone https://github.com/marconeed/Lucida-Flow```
+```
+git clone https://github.com/marconeed/Lucida-Flow
 
-```cd Lucida-Flow-main```
+cd Lucida-Flow-main
+```
 
 1.3. A Anatomia de um Script Lucida-Flow
 Todos os arquivos de código da Lucida-Flow usam a extensão .lf. São simples arquivos de texto que você pode criar e editar em qualquer editor de código, como o VS Code.
@@ -1164,19 +1166,90 @@ atualizar_relogio()
 ```
 
 Executando o Projeto
+
 1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("relogio.lf", 'r', encoding='utf-8') as f:.
 2.	Execute o anfitrião no seu terminal: python gui_host.py.
+
 Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
 
 Desafios para Expansão
+
 •	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
+
 •	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.
+
+Capítulo 3: O Bloco de Notas Simples (Foco em Texto Multilinha e Interação com Ficheiros)
+Introdução
+Aplicações de texto são a base de muita da nossa interação com computadores. Neste capítulo, vamos construir um editor de texto minimalista, o nosso próprio "Bloco de Notas". A nossa aplicação terá uma área de texto principal onde o utilizador pode escrever livremente, e dois botões essenciais: "Abrir" para carregar um ficheiro de texto, e "Salvar" para guardar o trabalho.
+Este projeto é um exemplo perfeito de como a Lucida-Flow pode orquestrar a interação entre a interface gráfica do utilizador e o sistema de ficheiros do computador.
+Conceitos a Aprender
+•	Widget de Texto Multilinha: Como criar uma área de texto grande para edição.
+•	Interação com Módulos Nativos: Usar o módulo fs (fs.read e fs.write) para carregar e salvar o conteúdo da área de texto.
+•	Diálogos do Sistema: Usar o gui para abrir as janelas nativas de "Abrir Ficheiro" e "Salvar Ficheiro".
+•	Combinação de Lógica: Juntar a lógica da UI com a lógica de manipulação de ficheiros num único programa.
+
+O Código (bloco_de_notas.lf)
+Este script define a interface e as funções que os botões irão chamar.
+Ação: Crie um ficheiro chamado bloco_de_notas.lf e cole o seguinte código.
+
+# bloco_de_notas.lf
+import "fs" as fs
+
+print("A construir a aplicação de Bloco de Notas...")
+
+# --- Funções de Lógica ---
+
+define process salvar_ficheiro() {
+    # 1. Abre o diálogo "Salvar Como..." do sistema
+    let caminho_ficheiro = gui.salvar_dialogo_ficheiro()
+        # 2. Se o utilizador não cancelou...
+    when caminho_ficheiro != "" {
+        print(f"A salvar o ficheiro em: {caminho_ficheiro}")
+        # 3. Obtém todo o texto da caixa de texto
+        let conteudo = gui.obter_texto_completo("caixa_principal")
+        # 4. Escreve o conteúdo no ficheiro escolhido
+        fs.write(caminho_ficheiro, conteudo)
+        # 5. Atualiza a barra de status
+        gui.alterar_texto("rotulo_status", f"Ficheiro salvo com sucesso!")
+    }
+}
+
+define process abrir_ficheiro() {
+    # 1. Abre o diálogo "Abrir Ficheiro..." do sistema
+    let caminho_ficheiro = gui.abrir_dialogo_ficheiro()
+    
+    # 2. Se o utilizador escolheu um ficheiro...
+    when caminho_ficheiro != "" {
+        print(f"A abrir o ficheiro: {caminho_ficheiro}")
+        try {
+            # 3. Lê o conteúdo do ficheiro
+            let conteudo = fs.read(caminho_ficheiro)
+            # 4. Coloca o conteúdo na caixa de texto
+            gui.definir_texto_completo("caixa_principal", conteudo)
+            gui.alterar_texto("rotulo_status", f"Ficheiro '{caminho_ficheiro}' carregado.")
+        } catch (e: Exception) {
+            gui.alterar_texto("rotulo_status", f"Erro ao ler o ficheiro: {e}")
+        }
+    }
+}
+
+# --- Construção da Interface Gráfica ---
+
+gui.criar_botao("botao_abrir", "Abrir", "abrir_ficheiro")
+gui.criar_botao("botao_salvar", "Salvar", "salvar_ficheiro")
+
+gui.criar_caixa_texto("caixa_principal")
+
+gui.criar_rotulo("rotulo_status", "Bem-vindo ao Bloco de Notas Lucida-Flow!")
+
 
 Executando o Projeto
-1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("relogio.lf", 'r', encoding='utf-8') as f:.
+1.	No seu anfitrião gui_host.py, altere a linha de carregamento para with open("bloco_de_notas.lf", 'r', encoding='utf-8') as f:.
 2.	Execute o anfitrião no seu terminal: python gui_host.py.
-Uma janela irá aparecer, mostrando a hora atual a mudar a cada segundo. Você acabou de criar uma aplicação dinâmica!
+Uma janela com uma área de texto e os botões "Abrir" e "Salvar" irá aparecer. Teste o ciclo completo: escreva algo, clique em "Salvar" e guarde o seu ficheiro. Depois, apague o texto, clique em "Abrir" e carregue o ficheiro que acabou de salvar. O seu texto deverá reaparecer!
 Desafios para Expansão
-•	Modifique o dt.format() para incluir também a data (%d/%m/%Y).
-•	Adicione um botão "Parar/Continuar" que controle uma variável booleana (como esta_pausado) para parar e retomar as atualizações.
+•	Adicione um menu "Ficheiro" com as opções "Abrir" e "Salvar" em vez de usar botões.
+•	Mostre o nome do ficheiro que está a ser editado no título da janela.
+•	Implemente uma verificação de "ficheiro modificado" para perguntar ao utilizador se ele quer salvar as alterações antes de fechar a aplicação.
+
 

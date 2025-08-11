@@ -1470,3 +1470,73 @@ Desafios para Expansão
 
 •	Converta o cronómetro num temporizador regressivo (countdown timer).
 
+Capítulo 7: Paint (Foco em Canvas e Eventos do Rato)
+
+Introdução
+
+Neste capítulo final, vamos construir a nossa própria aplicação de desenho, um "Paint" super básico. Em vez de widgets pré-definidos como botões e rótulos, criaremos uma "tela" em branco onde o utilizador poderá desenhar livremente usando o rato.
+
+Este projeto introduz o conceito de programação orientada a eventos com o rato, abrindo as portas para criar jogos e aplicações muito mais interativas e dinâmicas.
+
+Conceitos a Aprender
+
+•	Widget de Tela (Canvas): Como criar uma área de desenho livre.
+
+•	Eventos do Rato: Como fazer a nossa linguagem reagir a eventos como "o botão do rato foi pressionado", "o rato moveu-se" e "o botão do rato foi solto".
+
+•	Lógica de Desenho: Usar as coordenadas do rato para desenhar linhas e criar traços contínuos.
+
+•	Gestão de Estado: Guardar a última posição do rato para saber de onde a onde desenhar.
+
+O Código (paint.lf)
+
+Este script cria a interface e define as funções que irão "ouvir" os eventos do rato para desenhar na tela.
+
+Ação: Crie um ficheiro chamado paint.lf e cole o seguinte código.
+
+```
+#paint.lf
+print("A construir a aplicação de Paint...")
+#--- Variáveis de Estado ---
+#Guardam a última posição do rato para sabermos de onde a onde desenhar a linha.
+let ultimo_x = 0
+let ultimo_y = 0
+#--- Funções de Callback (Eventos do Rato) ---
+#Esta função é chamada quando o botão esquerdo do rato é pressionado na tela.
+define process ao_pressionar_botao(x: int, y: int) {
+    # Define o ponto de partida do nosso traço.
+    ultimo_x = x
+    ultimo_y = y
+}
+#Esta função é chamada quando o rato se move COM o botão pressionado.
+define process ao_mover_rato(x: int, y: int) {
+    # Desenha uma pequena linha da última posição até à posição atual.
+    gui.desenhar_linha("tela_desenho", ultimo_x, ultimo_y, x, y, "black")
+    # Atualiza a "última posição" para a posição atual, para que a próxima linha
+    # comece a partir daqui.
+    ultimo_x = x
+    ultimo_y = y
+}
+#--- Construção da Interface Gráfica ---
+gui.criar_rotulo("titulo", "Aplicação de Desenho Lucida-Flow")
+gui.criar_tela("tela_desenho", 500, 400, "white") # Uma tela branca de 500x400 pixels
+#Vincula as nossas funções aos eventos do rato que acontecem no widget "tela_desenho".
+gui.vincular_evento_rato("tela_desenho", "botao_pressionado", "ao_pressionar_botao")
+gui.vincular_evento_rato("tela_desenho", "movimento", "ao_mover_rato")
+```
+
+Executando o Projeto
+
+1.	Garanta que o seu anfitrião gui_host.py está atualizado com as funções para criar_tela, vincular_evento_rato e desenhar_linha.
+2.	Altere a linha de carregamento no seu gui_host.py para with open("paint.lf", 'r', encoding='utf-8') as f:.
+3.	Execute o anfitrião no seu terminal: python gui_host.py.
+
+Uma janela com uma tela branca irá aparecer. Clique com o botão esquerdo do rato e arraste-o sobre a tela para desenhar!
+
+Desafios para Expansão
+
+•	Adicione botões para permitir que o utilizador mude a cor do pincel (ex: "Preto", "Vermelho", "Azul").
+
+•	Adicione um slider para controlar a espessura do pincel.
+
+•	Crie um botão "Limpar" que apague todo o conteúdo da tela.

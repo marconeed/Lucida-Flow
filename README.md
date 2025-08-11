@@ -1128,7 +1128,7 @@ gui.criar_rotulo("rotulo_contador", f"Valor: {valor_contador}")
 
 gui.criar_botao("botao_mais", "+", "incrementar")
 
-gui.criar_botao("botao_menos", "-", "decrementar")```
-
+gui.criar_botao("botao_menos", "-", "decrementar")
+```
 
 Executando o Projeto Para executar este projeto, o anfitrião gui_host.py deve estar configurado para carregar o ficheiro contador.lf. Ao ser executado, uma janela simples aparecerá, e os botões irão atualizar o valor do contador em tempo real, demonstrando a interação entre a lógica Lucida-Flow e a interface gráfica.

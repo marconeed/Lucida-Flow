@@ -4,6 +4,40 @@
 
 [Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
 
+
+OBS:
+
+Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
+
+```git clone https://github.com/marconeed/Lucida-Flow```
+
+```cd Lucida-Flow```
+
+OBS:
+
+Baixe as dependencias usando o terminal ou o terminal do VScode:
+
+pip install requests   
+
+OBS:
+
+Para criar programas com interface grafica precisamos criar 2 arquivos o:
+
+O arquivo .py contendo os codigos para desenhar a interface grafica
+
+O arquivo .lf contendo os codigos da logica  do programa
+
+Os 2 arquivos precisam estar na raiz da linguagem de programação, onde fica todo o codigo da linguagem, ou você pode colocar em outros locais, mais tera que referenciar nos 2 arquivos as pastas onde estão as importações de que os 2 arquivos precisam para funcionar
+
+a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto em uma pasta chamada gui, basta colocar as que for usar na raiz junto ao arquivo .lf. Se quiser deixar onde esta precisa mudar o caminho das importações dos 2 arquivos.
+
+OBS:
+
+Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
+
+```python nome-do-arquivo-gui_host.py```
+
+
 # Fluindo com Código: O Guia Definitivo da Linguagem Lucida-Flow
 Subtítulo: Da Automação de Scripts à Criação de Sistemas Extensíveis
 
@@ -983,6 +1017,7 @@ Snippet de código
 A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da linguagem e quer ver o seu desenvolvimento continuar, considere [tornar-se um patrocinador no GitHub Sponsors](https://github.com/sponsors/marconeed)! O seu apoio é fundamental para a manutenção e evolução do projeto.
 
 
+
 # Construindo Aplicações Gráficas com Lucida-Flow
 
 Introdução: Do Terminal à Janela
@@ -1042,38 +1077,6 @@ Capítulo 7: A Aplicação de Desenho "Paint"
 
 No nosso projeto final, libertamo-nos dos widgets tradicionais. Aprenderemos a usar uma "tela" (Canvas) e a reagir diretamente aos movimentos e cliques do rato para criar uma aplicação de desenho livre, a base para projetos mais criativos e jogos.
 
-OBS:
-
-Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
-
-```git clone https://github.com/marconeed/Lucida-Flow```
-
-```cd Lucida-Flow```
-
-OBS:
-
-Baixe as dependencias usando o terminal ou o terminal do VScode:
-
-pip install requests   
-
-OBS:
-
-Para criar programas com interface grafica precisamos criar 2 arquivos o:
-
-O arquivo .py contendo os codigos para desenhar a interface grafica
-
-O arquivo .lf contendo os codigos da logica  do programa
-
-Os 2 arquivos precisam estar na raiz da linguagem de programação, onde fica todo o codigo da linguagem, ou você pode colocar em outros locais, mais tera que referenciar nos 2 arquivos as pastas onde estão as importações de que os 2 arquivos precisam para funcionar
-
-a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto em uma pasta chamada gui, basta colocar as que for usar na raiz junto ao arquivo .lf. Se quiser deixar onde esta precisa mudar o caminho das importações dos 2 arquivos.
-
-OBS:
-
-Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
-
-```python nome-do-arquivo-gui_host.py```
-
 Capítulo 1: O Contador de Cliques (Foco em Estado e Eventos)
 
 Introdução Este é o "Olá, Mundo!" das aplicações gráficas. Construiremos uma janela com um número (começando em zero) e dois botões: "+" e "-". Clicar nos botões irá incrementar ou decrementar o número. Este projeto ensina o conceito mais importante de uma GUI: a relação entre estado (uma variável que guarda o valor) e eventos (o clique do utilizador).
@@ -1132,3 +1135,4 @@ gui.criar_botao("botao_menos", "-", "decrementar")
 ```
 
 Executando o Projeto Para executar este projeto, o anfitrião gui_host.py deve estar configurado para carregar o ficheiro contador.lf. Ao ser executado, uma janela simples aparecerá, e os botões irão atualizar o valor do contador em tempo real, demonstrando a interação entre a lógica Lucida-Flow e a interface gráfica.
+

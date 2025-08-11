@@ -84,7 +84,7 @@ Bash
 ```
 git clone https://github.com/marconeed/Lucida-Flow
 
-cd Lucida-Flow-main
+cd Lucida-Flow
 ```
 
 1.3. A Anatomia de um Script Lucida-Flow

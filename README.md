@@ -1042,35 +1042,35 @@ Capítulo 7: A Aplicação de Desenho "Paint"
 
 No nosso projeto final, libertamo-nos dos widgets tradicionais. Aprenderemos a usar uma "tela" (Canvas) e a reagir diretamente aos movimentos e cliques do rato para criar uma aplicação de desenho livre, a base para projetos mais criativos e jogos.
 
-# OBS:
+OBS:
 
-# Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
+Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
 
 ```git clone https://github.com/marconeed/Lucida-Flow```
 
 ```cd Lucida-Flow```
 
-# OBS:
+OBS:
 
-# Baixe as dependencias usando o terminal ou o terminal do VScode:
+Baixe as dependencias usando o terminal ou o terminal do VScode:
 
 pip install requests   
 
-# OBS:
+OBS:
 
-# Para criar programas com interface grafica precisamos criar 2 arquivos o:
+Para criar programas com interface grafica precisamos criar 2 arquivos o:
 
-# O arquivo .py contendo os codigos para desenhar a interface grafica
+O arquivo .py contendo os codigos para desenhar a interface grafica
 
-# O arquivo .lf contendo os codigos da logica  do programa
+O arquivo .lf contendo os codigos da logica  do programa
 
-# Os 2 arquivos precisam estar na raiz da linguagem de programação, onde fica todo o codigo da linguagem, ou você pode colocar em outros locais, mais tera que referenciar nos 2 arquivos as pastas onde estão as importações de que os 2 arquivos precisam para funcionar
+Os 2 arquivos precisam estar na raiz da linguagem de programação, onde fica todo o codigo da linguagem, ou você pode colocar em outros locais, mais tera que referenciar nos 2 arquivos as pastas onde estão as importações de que os 2 arquivos precisam para funcionar
 
-# a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto em uma pasta chamada gui, basta colocar as que for usar na raiz junto ao arquivo .lf. Se quiser deixar onde esta precisa mudar o caminho das importações dos 2 arquivos.
+a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto em uma pasta chamada gui, basta colocar as que for usar na raiz junto ao arquivo .lf. Se quiser deixar onde esta precisa mudar o caminho das importações dos 2 arquivos.
 
-# OBS:
+OBS:
 
-# Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
+Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
 
 ```python nome-do-arquivo-gui_host.py```
 

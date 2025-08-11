@@ -347,9 +347,9 @@ Snippet de código
 
 ``` }```
 
-```when com otherwise (senão):```
+when com otherwise (senão):
 
-```O bloco otherwise é executado se a condição do when for false.```
+O bloco otherwise é executado se a condição do when for false.
 
 Snippet de código
 

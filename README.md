@@ -1038,24 +1038,24 @@ Conceitos a Aprender
 O Código (contador.lf)
 
 ```
-# contador.lf
+#contador.lf
 print("A construir a aplicação de contador...")
-# --- 1. Estado da Aplicação ---
-# A variável que guarda o número atual.
+#--- 1. Estado da Aplicação ---
+#A variável que guarda o número atual.
 let valor_contador = 0
-# --- 2. Funções de Callback (O que os botões fazem) ---
-# Esta função é chamada pelo botão '+'
+#--- 2. Funções de Callback (O que os botões fazem) ---
+#Esta função é chamada pelo botão '+'
 define process incrementar() {
     valor_contador += 1
     # Atualiza o texto do rótulo com o novo valor
     gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
 }
-# Esta função é chamada pelo botão '-'
+#Esta função é chamada pelo botão '-'
 define process decrementar() {
     valor_contador -= 1
     gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
 }
-# --- 3. Construção da Interface Gráfica ---
+#--- 3. Construção da Interface Gráfica ---
 gui.criar_rotulo("rotulo_contador", f"Valor: {valor_contador}")
 gui.criar_botao("botao_mais", "+", "incrementar")
 gui.criar_botao("botao_menos", "-", "decrementar")
@@ -1087,10 +1087,10 @@ A beleza deste projeto está na sua simplicidade. A lógica principal é uma ún
 Ação: Crie um ficheiro chamado relogio.lf e cole o seguinte código.
 
 ```
-# relogio.lf
+#relogio.lf
 import "datetime" as dt
 print("A construir a aplicação de relógio digital...")
-# --- Função de Lógica Principal ---
+#--- Função de Lógica Principal ---
 define process atualizar_relogio() {
     # 1. Obtém o timestamp atual do sistema
     let agora = dt.now()
@@ -1102,10 +1102,10 @@ define process atualizar_relogio() {
     #    daqui a 1 segundo (1000 milissegundos).
     gui.agendar_atualizacao(1000, "atualizar_relogio")
 }
-# --- Construção da Interface Gráfica ---
-# Usamos o nosso rótulo especial de resultado para dar um estilo de relógio digital
+#--- Construção da Interface Gráfica ---
+#Usamos o nosso rótulo especial de resultado para dar um estilo de relógio digital
 gui.criar_rotulo_resultado("visor_relogio", "A carregar...")
-# Inicia o ciclo de atualização pela primeira vez, que depois continuará para sempre
+#Inicia o ciclo de atualização pela primeira vez, que depois continuará para sempre
 atualizar_relogio()
 ```
 
@@ -1147,10 +1147,10 @@ Este script define a interface e as funções que os botões irão chamar.
 Ação: Crie um ficheiro chamado bloco_de_notas.lf e cole o seguinte código.
 
 ```
-# bloco_de_notas.lf
+#bloco_de_notas.lf
 import "fs" as fs
 print("A construir a aplicação de Bloco de Notas...")
-# --- Funções de Lógica ---
+#--- Funções de Lógica ---
 define process salvar_ficheiro() {
     # 1. Abre o diálogo "Salvar Como..." do sistema
     let caminho_ficheiro = gui.salvar_dialogo_ficheiro()
@@ -1182,7 +1182,7 @@ define process abrir_ficheiro() {
         }
     }
 }
-# --- Construção da Interface Gráfica ---
+#--- Construção da Interface Gráfica ---
 gui.criar_botao("botao_abrir", "Abrir", "abrir_ficheiro")
 gui.criar_botao("botao_salvar", "Salvar", "salvar_ficheiro")
 gui.criar_caixa_texto("caixa_principal")
@@ -1240,14 +1240,14 @@ Este script define a interface e a lógica para chamar a API.
 Ação: Crie um ficheiro chamado previsao_tempo.lf.
 
 ```
-# previsao_tempo.lf
+#previsao_tempo.lf
 import "web" as web
 import "json" as json
 print("A construir a aplicação de Meteorologia...")
-# --- Configuração ---
-# IMPORTANTE: Cole a sua API Key do OpenWeatherMap aqui
+#--- Configuração ---
+#IMPORTANTE: Cole a sua API Key do OpenWeatherMap aqui
 const API_KEY = "SUA_API_KEY_AQUI"
-# --- Funções de Lógica ---
+#--- Funções de Lógica ---
 define process obter_previsao() {
     let cidade = gui.obter_texto("entrada_cidade")
     when cidade == "" {
@@ -1273,11 +1273,11 @@ define process obter_previsao() {
         gui.alterar_texto("rotulo_resultado", "Erro: Cidade não encontrada ou problema de rede.")
     }
 }
-# --- Construção da Interface Gráfica ---
+#--- Construção da Interface Gráfica ---
 gui.criar_rotulo("rotulo_instrucao", "Digite o nome de uma cidade:")
 gui.criar_entrada("entrada_cidade")
 gui.criar_botao("botao_pesquisar", "Ver Previsão do Tempo", "obter_previsao")
-# Usamos o nosso rótulo de resultado especial para dar mais destaque
+#Usamos o nosso rótulo de resultado especial para dar mais destaque
 gui.criar_rotulo_resultado("rotulo_resultado", "")
 ```
 
@@ -1321,10 +1321,10 @@ Este script define a interface e a lógica principal da aplicação.
 Ação: Crie um ficheiro chamado gerador_senha.lf e cole o seguinte código.
 
 ```
-# gerador_senha.lf
+#gerador_senha.lf
 import "dado" as d
 print("A construir a aplicação Gerador de Senhas...")
-# --- Função de Lógica ---
+#--- Função de Lógica ---
 define process gerar_senha() {
     let caracteres_base = "abcdefghijklmnopqrstuvwxyz"
     let numeros = "0123456789"
@@ -1353,7 +1353,7 @@ define process gerar_senha() {
     }
     gui.alterar_texto("rotulo_senha", senha_final)
 }
-# --- Construção da Interface Gráfica ---
+#--- Construção da Interface Gráfica ---
 gui.criar_rotulo("titulo", "Gerador de Palavras-passe")
 gui.criar_checkbox("check_maiusculas", "Incluir Letras Maiúsculas")
 gui.criar_checkbox("check_numeros", "Incluir Números")
@@ -1361,7 +1361,7 @@ gui.criar_checkbox("check_simbolos", "Incluir Símbolos")
 gui.criar_rotulo("label_comprimento", "\nComprimento da Senha:")
 gui.criar_slider("slider_comprimento", 8, 32)
 gui.criar_botao("botao_gerar", "Gerar Senha", "gerar_senha")
-# Usa o nosso rótulo especial de resultado
+#Usa o nosso rótulo especial de resultado
 gui.criar_rotulo_resultado("rotulo_senha", "[Sua senha aparecerá aqui]")
 ```
 
@@ -1407,13 +1407,13 @@ Toda a lógica viverá no nosso ficheiro Lucida-Flow. Usaremos variáveis para c
 Ação: Crie um ficheiro chamado cronometro.lf.
 
 ```
-# cronometro.lf
+#cronometro.lf
 print("A construir a aplicação de Cronómetro...")
-# --- 1. Variáveis de Estado da Aplicação ---
+#--- 1. Variáveis de Estado da Aplicação ---
 let tempo_decorrido = 0.0  # Em segundos
 let esta_a_correr = false
-# --- 2. Funções de Lógica e Callbacks ---
-# A função principal que corre a cada 100ms
+#--- 2. Funções de Lógica e Callbacks ---
+#A função principal que corre a cada 100ms
 define process atualizar_cronometro() {
     # Só faz alguma coisa se o cronómetro estiver ligado
     when esta_a_correr == true {
@@ -1433,7 +1433,7 @@ define process atualizar_cronometro() {
         gui.agendar_atualizacao(100, "atualizar_cronometro")
     }
 }
-# Chamada pelo botão "Iniciar/Parar"
+#Chamada pelo botão "Iniciar/Parar"
 define process iniciar_parar() {
     esta_a_correr = not esta_a_correr
     # Se acabámos de o ligar, temos de iniciar o ciclo de atualização
@@ -1441,13 +1441,13 @@ define process iniciar_parar() {
         atualizar_cronometro()
     }
 }
-# Chamada pelo botão "Resetar"
+#Chamada pelo botão "Resetar"
 define process resetar() {
     esta_a_correr = false
     tempo_decorrido = 0.0
     gui.alterar_texto("visor", "00:00.0")
 }
-# --- 3. Construção da Interface Gráfica ---
+#--- 3. Construção da Interface Gráfica ---
 gui.criar_rotulo_resultado("visor", "00:00.0")
 gui.criar_botao("botao_iniciar", "Iniciar/Parar", "iniciar_parar")
 gui.criar_botao("botao_resetar", "Resetar", "resetar")

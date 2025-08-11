@@ -725,7 +725,7 @@ Snippet de código
 
 ```
 define process mapa(lista, funcao) -> list {
-let nova_lista = [
+let nova_lista = []
    for each item in lista {
         nova_lista.append(funcao(item))
    }
@@ -734,7 +734,6 @@ let nova_lista = [
 let numeros = [1, 2, 3]
 let dobrados = mapa(numeros, dobrar) // Passando a função 'dobrar' como argumento!
 print(dobrados) // Saída: [2, 4, 6]
-}
 ```
 
 6.5. Funções Anônimas (Lambdas)

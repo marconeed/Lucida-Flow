@@ -954,8 +954,9 @@ Use na Lucida-Flow:
 
 Snippet de código
 
-```import "meu_plugin" as plugin
-   print(plugin.saudacao("Marco")
+```
+import "meu_plugin" as plugin
+print(plugin.saudacao("Marco")
 ```
 
 

@@ -982,6 +982,7 @@ Snippet de código
 
 A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da linguagem e quer ver o seu desenvolvimento continuar, considere [tornar-se um patrocinador no GitHub Sponsors](https://github.com/sponsors/marconeed)! O seu apoio é fundamental para a manutenção e evolução do projeto.
 
+
 # Construindo Aplicações Gráficas com Lucida-Flow
 
 Introdução: Do Terminal à Janela
@@ -1007,3 +1008,126 @@ O que você vai construir:
 Para seguir este livro, você já deve estar confortável com a sintaxe básica da Lucida-Flow, como a declaração de variáveis, loops e funções. Se precisar de rever estes conceitos, o "Livro 1: O Manual de Referência" é o seu companheiro ideal.
 
 Prepare-se para transformar o seu código em experiências visuais e interativas. Vamos começar a construir.
+
+Estrutura do Livro
+
+Este livro foi projetado para ser uma jornada prática e incremental. Em vez de focarmos na teoria, vamos mergulhar diretamente na construção de aplicações reais, onde cada capítulo introduz um novo desafio e um novo conjunto de ferramentas.
+
+A nossa abordagem é "aprender fazendo". Cada projeto é autocontido, mas os conceitos aprendidos em um serão a base para o próximo.
+
+Capítulo 1: O Contador de Cliques
+
+Começamos com o "Olá, Mundo!" das aplicações gráficas. Este projeto simples ensina os conceitos mais fundamentais: como gerir o estado de uma aplicação (uma variável que guarda o número) e como fazer a interface reagir a eventos do utilizador (cliques nos botões).
+
+Capítulo 2: O Relógio Digital
+
+Neste capítulo, damos vida à nossa aplicação. Aprenderemos a criar interfaces que se atualizam sozinhas em intervalos de tempo, um conceito essencial para qualquer programa dinâmico, desde jogos a dashboards.
+
+Capítulo 3: O Gerador de Palavras-passe
+
+Vamos além dos botões e rótulos básicos. Este projeto introduz novos widgets de interface, como Checkboxes e Sliders, permitindo que o utilizador personalize a sua experiência e dando-nos mais ferramentas para criar UIs complexas.
+
+Capítulo 4: O Bloco de Notas Simples
+
+Aqui, unimos a nossa interface gráfica ao sistema de ficheiros. Você aprenderá a usar widgets de texto de múltiplas linhas e a implementar a lógica para abrir e salvar o trabalho do utilizador em ficheiros de texto.
+Capítulo 5: A Aplicação de Meteorologia
+
+Este é o nosso primeiro projeto conectado à internet. Aprenderemos a usar os módulos web e json da Lucida-Flow para comunicar com uma API externa, obter dados em tempo real e exibi-los na nossa aplicação.
+
+Capítulo 6: O Cronómetro
+
+Aprofundamos a nossa gestão de estado. Este projeto ensina a lidar com uma lógica mais complexa (estados como "a correr", "parado", "resetado") para criar uma ferramenta de produtividade funcional.
+
+Capítulo 7: A Aplicação de Desenho "Paint"
+
+No nosso projeto final, libertamo-nos dos widgets tradicionais. Aprenderemos a usar uma "tela" (Canvas) e a reagir diretamente aos movimentos e cliques do rato para criar uma aplicação de desenho livre, a base para projetos mais criativos e jogos.
+
+# OBS:
+
+# Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
+
+```git clone https://github.com/marconeed/Lucida-Flow```
+
+```cd Lucida-Flow```
+
+# OBS:
+
+# Baixe as dependencias usando o terminal ou o terminal do VScode:
+
+pip install requests   
+
+# OBS:
+
+# Para criar programas com interface grafica precisamos criar 2 arquivos o:
+
+# O arquivo .py contendo os codigos para desenhar a interface grafica
+
+# O arquivo .lf contendo os codigos da logica  do programa
+
+# Os 2 arquivos precisam estar na raiz da linguagem de programação, onde fica todo o codigo da linguagem, ou você pode colocar em outros locais, mais tera que referenciar nos 2 arquivos as pastas onde estão as importações de que os 2 arquivos precisam para funcionar
+
+# a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto em uma pasta chamada gui, basta colocar as que for usar na raiz junto ao arquivo .lf. Se quiser deixar onde esta precisa mudar o caminho das importações dos 2 arquivos.
+
+# OBS:
+
+# Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
+
+```python nome-do-arquivo-gui_host.py```
+
+Capítulo 1: O Contador de Cliques (Foco em Estado e Eventos)
+
+Introdução Este é o "Olá, Mundo!" das aplicações gráficas. Construiremos uma janela com um número (começando em zero) e dois botões: "+" e "-". Clicar nos botões irá incrementar ou decrementar o número. Este projeto ensina o conceito mais importante de uma GUI: a relação entre estado (uma variável que guarda o valor) e eventos (o clique do utilizador).
+
+Conceitos a Aprender
+
+•	Manter o "estado" da aplicação numa variável.
+
+•	Ter múltiplos botões a chamar diferentes funções.
+
+•	Atualizar um widget (o rótulo do número) em resposta a um evento.
+
+O Código (contador.lf)
+
+# contador.lf
+
+```print("A construir a aplicação de contador...")
+
+# --- 1. Estado da Aplicação ---
+
+# A variável que guarda o número atual.
+
+let valor_contador = 0
+
+# --- 2. Funções de Callback (O que os botões fazem) ---
+
+# Esta função é chamada pelo botão '+'
+
+define process incrementar() {
+
+    valor_contador += 1
+    
+    # Atualiza o texto do rótulo com o novo valor
+    
+    gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
+    
+}
+
+# Esta função é chamada pelo botão '-'
+
+define process decrementar() {
+
+    valor_contador -= 1
+    
+    gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
+    
+}
+
+# --- 3. Construção da Interface Gráfica ---
+
+gui.criar_rotulo("rotulo_contador", f"Valor: {valor_contador}")
+
+gui.criar_botao("botao_mais", "+", "incrementar")
+
+gui.criar_botao("botao_menos", "-", "decrementar")```
+
+Executando o Projeto Para executar este projeto, o anfitrião gui_host.py deve estar configurado para carregar o ficheiro contador.lf. Ao ser executado, uma janela simples aparecerá, e os botões irão atualizar o valor do contador em tempo real, demonstrando a interação entre a lógica Lucida-Flow e a interface gráfica.

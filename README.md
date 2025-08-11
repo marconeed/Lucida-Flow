@@ -981,3 +981,29 @@ Snippet de código
 ## Apoie o Projeto
 
 A Lucida-Flow é um projeto independente e de código aberto. Se você gosta da linguagem e quer ver o seu desenvolvimento continuar, considere [tornar-se um patrocinador no GitHub Sponsors](https://github.com/sponsors/marconeed)! O seu apoio é fundamental para a manutenção e evolução do projeto.
+
+# Construindo Aplicações Gráficas com Lucida-Flow
+
+Introdução: Do Terminal à Janela
+
+Bem-vindo ao segundo volume da Biblioteca Lucida-Flow! Se você já dominou os fundamentos da linguagem com o nosso "Manual de Referência", está agora no lugar certo para dar o próximo e mais excitante passo: dar vida às suas ideias com interfaces gráficas interativas.
+
+Para que serve este livro? Este livro é puramente prático. É o seu guia "mãos na massa" para usar a Lucida-Flow para o que ela faz de melhor: atuar como o cérebro lógico por trás de aplicações complexas. Ao longo dos próximos capítulos, vamos deixar o terminal para trás e começar a construir programas com janelas, botões, caixas de texto, telas de desenho e muito mais.
+
+A Filosofia: Aprender Fazendo Acreditamos que a melhor forma de aprender a programar aplicações é construindo-as. Em vez de longas explicações teóricas, cada capítulo deste livro é focado num projeto prático e completo. Começaremos com uma aplicação simples e, a cada capítulo, introduziremos um novo conceito, um novo widget e um novo desafio, terminando com aplicações que interagem com o sistema de ficheiros, com a internet e com os seus próprios movimentos do rato.
+
+O que você vai construir:
+
+•	Um contador de cliques interativo.
+
+•	Um relógio digital que se atualiza em tempo real.
+
+•	Um gerador de palavras-passe seguras com opções customizáveis.
+
+•	Um bloco de notas funcional para ler e salvar ficheiros de texto.
+
+•	E muito mais!
+
+Para seguir este livro, você já deve estar confortável com a sintaxe básica da Lucida-Flow, como a declaração de variáveis, loops e funções. Se precisar de rever estes conceitos, o "Livro 1: O Manual de Referência" é o seu companheiro ideal.
+
+Prepare-se para transformar o seu código em experiências visuais e interativas. Vamos começar a construir.

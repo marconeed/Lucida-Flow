@@ -4,7 +4,7 @@
 
 [Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
 
-[pypi org](https://pypi.org/project/lucidaflow)
+[Lucida-Flow - pypi org](https://pypi.org/project/lucidaflow)
 
 ______________________________________________________________________________________________
 

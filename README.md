@@ -41,6 +41,8 @@ OBS:
 
 Para executar basta colocar esse comando usando o terminal Windows ou o terminal do VScode na pasta onde esta os arquivos e lembrar de refenciar o arquivo .lf na nome-do-arquivo-gui_host.py:
 
+```python main.py nome_arquivo.lf```
+
 ```python nome-do-arquivo-gui_host.py```
 
 ______________________________________________________________________________________________
@@ -63,7 +65,7 @@ OBS:
 
 A extensão funciona para auxiliar na contrução do codigo com sugestões e constução da sytanxe sublinhando as palavras, fica melhor programar no VS code
 
-O VS code suporta executar o codigo direto nele, mais para porgramas de interface grafica tera que usar o terminal do VS code para dar o comando para executar. o comando é o mesmo ```python nome-do-arquivo-gui_host.py```
+O VS code suporta executar o codigo direto nele nome_arquivo.lf, mais para porgramas de interface grafica tera que usar o terminal do VS code para dar o comando para executar. o comando é o mesmo ```python nome-do-arquivo-gui_host.py```
 
 ______________________________________________________________________________________________
 

@@ -4,10 +4,15 @@
 
 [Lucida-Flow Support - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support)
 
+[pypi org](https://pypi.org/project/lucidaflow)
+
+______________________________________________________________________________________________
+
+## Usando o Terminal:
 
 OBS:
 
-Faça download do repositorio Lucida-Flow em uma pasta usando o terminal ou o terminal do VScode:
+Faça download do repositorio Lucida-Flow em uma pasta usando o terminal Windows ou o terminal do VScode:
 
 ```
 git clone https://github.com/marconeed/Lucida-Flow
@@ -16,7 +21,7 @@ cd Lucida-Flow
 
 OBS:
 
-Baixe as dependencias usando o terminal ou o terminal do VScode:
+Baixe as dependencias usando o terminal Windows ou o terminal do VScode:
 
 ```pip install requests```   
 
@@ -34,10 +39,63 @@ a linguagem contem codigos das guis usadas no livro, estão na raiz do projeto e
 
 OBS:
 
-Para executar basta colocar esse comando usando o terminal ou o terminal do VScode na pasta onde esta os arquivos:
+Para executar basta colocar esse comando usando o terminal Windows ou o terminal do VScode na pasta onde esta os arquivos e lembrar de refenciar o arquivo .lf na nome-do-arquivo-gui_host.py:
 
 ```python nome-do-arquivo-gui_host.py```
 
+______________________________________________________________________________________________
+
+## Usando o VS code:
+
+OBS:
+
+Faça download da estensão da linguagem para VS code
+
+```https://marketplace.visualstudio.com/items?itemName=SoteroApps.lucidaflow-support```
+
+OBS:
+
+Baixe as dependencias usando o terminal Windows ou o terminal do VScode:
+
+```pip install requests```   
+
+OBS:
+
+A extensão funciona para auxiliar na contrução do codigo com sugestões e constução da sytanxe sublinhando as palavras, fica melhor programar no VS code
+
+O VS code suporta executar o codigo direto nele, mais para porgramas de interface grafica tera que usar o terminal do VS code para dar o comando para executar. o comando é o mesmo ```python nome-do-arquivo.extensão```
+
+______________________________________________________________________________________________
+
+## Usando o pypi org:
+
+OBS:
+
+Faça download da linguagem na pypi org
+
+```https://pypi.org/project/lucidaflow```
+
+```pip install lucidaflow```
+
+OBS:
+
+Usando a linguagem dessa forma você elimina a necessidade dos arquivos da linguagem estar na mesma pasta para funcionar, basta cria uma pasta vazia com o .lf e executar, ou nome-do-arquivo-gui_host.py + .lf e executar se for com interface grafica. Para executar o comando é o mesmo ```python nome-do-arquivo.extensão```
+
+Usar dessa forma combinado com o VS code e a extensão funciona para auxiliar na contrução do codigo com sugestões e constução da sytanxe sublinhando as palavras, fica melhor programar no VS code
+
+Para executar no terminal Windows basta abrir o terminal windows na pasta onde esta o .lf e digitar ```python nome-do-arquivo.lf```, ou abrir o terminal windows na pasta onde esta o gui.py e digitar ```nome-do-arquivo-gui_host.py`` se for com interface grafica
+
+Para executar no VS code basta apertar play para arquivos .lf. Para arquivo .lf e gui.py precisa ser usado o terminal do VS code ```python nome-do-arquivo.extensão```
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## Ativar o REPL (em qualquer pasta do computador):
+
+transformar a sua linguagem numa ferramenta de linha de comando profissional
+
+```python -m lucidaflow.cli```
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Fluindo com Código: O Guia Definitivo da Linguagem Lucida-Flow
 Subtítulo: Da Automação de Scripts à Criação de Sistemas Extensíveis

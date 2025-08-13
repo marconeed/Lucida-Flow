@@ -63,7 +63,7 @@ OBS:
 
 A extensão funciona para auxiliar na contrução do codigo com sugestões e constução da sytanxe sublinhando as palavras, fica melhor programar no VS code
 
-O VS code suporta executar o codigo direto nele, mais para porgramas de interface grafica tera que usar o terminal do VS code para dar o comando para executar. o comando é o mesmo ```python nome-do-arquivo.extensão```
+O VS code suporta executar o codigo direto nele, mais para porgramas de interface grafica tera que usar o terminal do VS code para dar o comando para executar. o comando é o mesmo ```python nome-do-arquivo-gui_host.py```
 
 ______________________________________________________________________________________________
 
@@ -79,13 +79,13 @@ Faça download da linguagem na pypi org
 
 OBS:
 
-Usando a linguagem dessa forma você elimina a necessidade dos arquivos da linguagem estar na mesma pasta para funcionar, basta cria uma pasta vazia com o .lf e executar, ou nome-do-arquivo-gui_host.py + .lf e executar se for com interface grafica. Para executar o comando é o mesmo ```python nome-do-arquivo.extensão```
+Usando a linguagem dessa forma você elimina a necessidade dos arquivos da linguagem estar na mesma pasta para funcionar, basta cria uma pasta vazia com o .lf e executar, ou nome-do-arquivo-gui_host.py + .lf e executar se for com interface grafica. Para executar o comando é ```python -m lucidaflow nome_arquivo.lf``` ou ```python nome-do-arquivo-gui_host.py```
 
 Usar dessa forma combinado com o VS code e a extensão funciona para auxiliar na contrução do codigo com sugestões e constução da sytanxe sublinhando as palavras, fica melhor programar no VS code
 
-Para executar no terminal Windows basta abrir o terminal windows na pasta onde esta o .lf e digitar ```python nome-do-arquivo.lf```, ou abrir o terminal windows na pasta onde esta o gui.py e digitar ```nome-do-arquivo-gui_host.py`` se for com interface grafica
+Para executar no terminal Windows basta abrir o terminal windows na pasta onde esta o .lf e digitar ```python -m lucidaflow nome-do-arquivo.lf```, ou abrir o terminal windows na pasta onde esta o gui.py e digitar ```python nome-do-arquivo-gui_host.py`` se for com interface grafica
 
-Para executar no VS code basta apertar play para arquivos .lf. Para arquivo .lf e gui.py precisa ser usado o terminal do VS code ```python nome-do-arquivo.extensão```
+Para executar no VS code basta apertar play para arquivos .lf. Para arquivo .lf e gui.py precisa ser usado o terminal do VS code ```python nome-do-arquivo-gui_host.py```
 
 _______________________________________________________________________________________________________________________________________________________________________________________________________________________
 

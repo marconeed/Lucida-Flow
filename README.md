@@ -6,7 +6,7 @@
 
 [Lucida-Flow - pypi org](https://pypi.org/project/lucidaflow)
 
-[Sponsor][(https://github.com/sponsors/marconeed)]
+[Sponsor](https://github.com/sponsors/marconeed)
 
 ______________________________________________________________________________________________
 

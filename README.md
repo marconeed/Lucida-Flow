@@ -6,6 +6,8 @@
 
 [Lucida-Flow - pypi org](https://pypi.org/project/lucidaflow)
 
+[Sponsor][(https://github.com/sponsors/marconeed)]
+
 ______________________________________________________________________________________________
 
 ## Usando o Terminal:

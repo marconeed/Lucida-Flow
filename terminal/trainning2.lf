@@ -1,0 +1,28 @@
+import "math" as m
+
+let peso_str = read("Digite o seu peso em kg (ex: 70.5): ")
+let altura_str = read("Digite a sua altura em metros (ex: 1.75): ")
+
+try {
+    let peso = to_float(peso_str)
+    let altura = to_float(altura_str)
+
+    # Usa as novas funções do módulo math
+    let altura_quadrado = m.mult(altura, altura)
+    let imc = m.div(peso, altura_quadrado)
+
+    print(f"O seu IMC é: {imc}")
+
+    when imc < 18.5 {
+        print("Você está abaixo do peso.")
+    } else when  imc >= 18.5 and imc < 24.9 {
+        print("Você está com o peso normal.")
+    } else when  imc >= 25 and imc < 29.9 {
+        print("Você está com sobrepeso.")
+    } otherwise {
+        print("Você está com obesidade.")
+    }
+
+} catch (e: Exception) {
+    print("Por favor, digite valores numéricos válidos.")
+}

@@ -1,0 +1,111 @@
+# contactos.lf (com persistência de dados)
+import "fs" as fs
+import "json" as json
+
+const NOME_FICHEIRO = "meus_contactos.json"
+
+# --- Funções de Gestão de Ficheiros ---
+
+define process carregar_contactos() -> list {
+    print("A carregar contactos do ficheiro...")
+    when fs.exists(NOME_FICHEIRO) {
+        try {
+            let conteudo_json = fs.read(NOME_FICHEIRO)
+            # Usa o nosso módulo json para converter o texto de volta para uma lista
+            return json.parse(conteudo_json)
+        } catch (e: Exception) {
+            print(f"Erro ao ler o ficheiro de contactos: {e}")
+            return [] # Retorna uma lista vazia se o ficheiro estiver corrompido
+        }
+    }
+    return [] # Retorna uma lista vazia se o ficheiro não existir
+}
+
+define process salvar_contactos(contactos: list) {
+    print("A salvar contactos no ficheiro...")
+    # Usa o nosso módulo json para converter a lista para uma string JSON formatada
+    let conteudo_json = json.stringify(contactos, 4) # O '4' é para indentação bonita
+    fs.write(NOME_FICHEIRO, conteudo_json)
+    print("Contactos salvos com sucesso!")
+}
+
+
+# --- Funções do Programa (as mesmas de antes) ---
+
+define process adicionar_contacto(lista_de_contactos: list) {
+    print("\n--- Adicionar Novo Contacto ---")
+    let nome = read("Digite o nome: ")
+    let telefone = read("Digite o telefone: ")
+    
+    let novo_contacto = {"nome": nome, "telefone": telefone}
+    lista_de_contactos.append(novo_contacto)
+    
+    print("Contacto adicionado com sucesso!")
+}
+
+define process listar_contactos(lista_de_contactos: list) {
+    print("\n--- Lista de Contactos ---")
+    when lista_de_contactos.length() == 0 {
+        print("Nenhum contacto na lista.")
+    } otherwise {
+        # --- CORREÇÃO AQUI ---
+        for each contacto in lista_de_contactos {
+            let nome_contato = contacto["nome"]
+            let telefone_contato = contacto["telefone"]
+            # A linha 'print' foi movida para DENTRO do loop
+            print(f"- Nome: {nome_contato}, Telefone: {telefone_contato}")
+        }
+        # --- FIM DA CORREÇÃO ---
+    }
+}
+
+define process procurar_contacto(lista_de_contactos: list) {
+    print("\n--- Procurar Contacto ---")
+    let nome_procura = read("Digite o nome a procurar: ")
+    let encontrado = false
+    
+    for each contacto in lista_de_contactos {
+        when contacto["nome"] == nome_procura {
+            print("Contacto encontrado:")
+            let nome_contato = contacto["nome"]
+            let telefone_contato = contacto["telefone"]
+            print(f"- Nome: {nome_contato}, Telefone: {telefone_contato}")
+            encontrado = true
+            break
+        }
+    }
+    
+    when not encontrado {
+        print("Nenhum contacto encontrado com esse nome.")
+    }
+}
+
+
+# --- Loop Principal do Menu ---
+
+# 1. Carrega os contactos existentes quando o programa começa
+let lista_de_contactos = carregar_contactos()
+
+while true {
+    print("\n<--- Gestor de Contactos Lucida-Flow --->")
+    print("1. Adicionar Contacto")
+    print("2. Listar Todos os Contactos")
+    print("3. Procurar por Nome")
+    print("4. Salvar e Sair")
+    
+    let escolha = read("Escolha uma opção: ")
+    
+    when escolha == "1" {
+        adicionar_contacto(lista_de_contactos)
+    } else when escolha == "2" {
+        listar_contactos(lista_de_contactos)
+    } else when escolha == "3" {
+        procurar_contacto(lista_de_contactos)
+    } else when escolha == "4" {
+        # 2. Salva os contactos antes de sair
+        salvar_contactos(lista_de_contactos)
+        break
+    } otherwise {
+        print("Opção inválida. Por favor, tente novamente.")
+    }
+}

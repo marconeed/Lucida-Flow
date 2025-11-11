@@ -1,0 +1,89 @@
+# contactos.lf
+
+# Usamos uma lista de dicionários para guardar os nossos contactos
+let lista_de_contactos = []
+
+# --- Funções do Programa ---
+
+define process adicionar_contacto() {
+    print("\n--- Adicionar Novo Contacto ---")
+    let nome = read("Digite o nome: ")
+    let telefone = read("Digite o telefone: ")
+    
+    let novo_contacto = {"nome": nome, "telefone": telefone}
+    lista_de_contactos.append(novo_contacto)
+    
+    print("Contacto adicionado com sucesso!")
+}
+
+define process listar_contactos() {
+    print("\n--- Lista de Contactos ---")
+    when lista_de_contactos.length() == 0 {
+        print("Nenhum contacto na lista.")
+    } otherwise {
+        for each contacto in lista_de_contactos {
+            # --- CORREÇÃO AQUI ---
+            # 1. Guarda os valores em variáveis simples
+            let nome_contato = contacto["nome"]
+            let telefone_contato = contacto["telefone"]
+            
+            # 2. Usa as variáveis simples na F-String
+            print(f"- Nome: {nome_contato}, Telefone: {telefone_contato}")
+            # --- FIM DA CORREÇÃO ---
+        }
+    }
+}
+
+define process procurar_contacto() {
+    print("\n--- Procurar Contacto ---")
+    let nome_procura = read("Digite o nome a procurar: ")
+    let encontrado = false
+    
+    for each contacto in lista_de_contactos {
+        when contacto["nome"] == nome_procura {
+            print("Contacto encontrado:")
+            
+            # --- CORREÇÃO AQUI ---
+            # 1. Guarda os valores em variáveis simples
+            let nome_contato = contacto["nome"]
+            let telefone_contato = contacto["telefone"]
+            
+            # 2. Usa as variáveis simples na F-String
+            print(f"- Nome: {nome_contato}, Telefone: {telefone_contato}")
+            # --- FIM DA CORREÇÃO ---
+
+            encontrado = true
+            break
+        }
+    }
+    
+    when not encontrado {
+        print("Nenhum contacto encontrado com esse nome.")
+    }
+}
+
+
+# --- Loop Principal do Menu ---
+
+while true {
+    print("\n<--- Gestor de Contactos Lucida-Flow --->")
+    print("1. Adicionar Contacto")
+    print("2. Listar Todos os Contactos")
+    print("3. Procurar por Nome")
+    print("4. Sair")
+    
+    let escolha = read("Escolha uma opção: ")
+    
+    when escolha == "1" {
+        adicionar_contacto()
+    } else when escolha == "2" {
+        listar_contactos()
+    } else when escolha == "3" {
+        procurar_contacto()
+    } else when escolha == "4" {
+        print("A sair... Adeus!")
+        break
+    } otherwise {
+        print("Opção inválida. Por favor, tente novamente.")
+    }
+}

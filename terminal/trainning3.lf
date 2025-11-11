@@ -1,0 +1,23 @@
+# menu_interativo.lf
+
+while true {
+    print("\n--- MENU ---")
+    print("1. Fazer uma ação")
+    print("2. Fazer outra ação")
+    print("3. Sair")
+    
+    let escolha = read("Digite a sua opção: ")
+    
+    when escolha == "1" {
+        print("-> Ação 1 foi executada.")
+    } else when escolha == "2" {
+        print("-> Ação 2 foi executada.")
+    } else when escolha == "3" {
+        print("A sair do programa. Adeus!")
+        break // <-- O comando que quebra o loop infinito
+    } otherwise {
+        print("Opção inválida. Tente novamente.")
+    }
+}
+
+print("\nPrograma terminado.")

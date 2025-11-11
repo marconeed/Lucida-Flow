@@ -1,0 +1,28 @@
+#paint.lf
+print("A construir a aplicação de Paint...")
+#--- Variáveis de Estado ---
+#Guardam a última posição do rato para sabermos de onde a onde desenhar a linha.
+let ultimo_x = 0
+let ultimo_y = 0
+#--- Funções de Callback (Eventos do Rato) ---
+#Esta função é chamada quando o botão esquerdo do rato é pressionado na tela.
+define process ao_pressionar_botao(x: int, y: int) {
+    # Define o ponto de partida do nosso traço.
+    ultimo_x = x
+    ultimo_y = y
+}
+#Esta função é chamada quando o rato se move COM o botão pressionado.
+define process ao_mover_rato(x: int, y: int) {
+    # Desenha uma pequena linha da última posição até à posição atual.
+    gui.desenhar_linha("tela_desenho", ultimo_x, ultimo_y, x, y, "black")
+    # Atualiza a "última posição" para a posição atual, para que a próxima linha
+    # comece a partir daqui.
+    ultimo_x = x
+    ultimo_y = y
+}
+#--- Construção da Interface Gráfica ---
+gui.criar_rotulo("titulo", "Aplicação de Desenho Lucida-Flow")
+gui.criar_tela("tela_desenho", 500, 400, "white") # Uma tela branca de 500x400 pixels
+#Vincula as nossas funções aos eventos do rato que acontecem no widget "tela_desenho".
+gui.vincular_evento_rato("tela_desenho", "botao_pressionado", "ao_pressionar_botao")
+gui.vincular_evento_rato("tela_desenho", "movimento", "ao_mover_rato")

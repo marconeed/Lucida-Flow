@@ -1,0 +1,21 @@
+#contador.lf
+print("A construir a aplicação de contador...")
+#--- 1. Estado da Aplicação ---
+#A variável que guarda o número atual.
+let valor_contador = 0
+#--- 2. Funções de Callback (O que os botões fazem) ---
+#Esta função é chamada pelo botão '+'
+define process incrementar() {
+    valor_contador += 1
+    # Atualiza o texto do rótulo com o novo valor
+    gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
+}
+#Esta função é chamada pelo botão '-'
+define process decrementar() {
+    valor_contador -= 1
+    gui.alterar_texto("rotulo_contador", f"Valor: {valor_contador}")
+}
+#--- 3. Construção da Interface Gráfica ---
+gui.criar_rotulo("rotulo_contador", f"Valor: {valor_contador}")
+gui.criar_botao("botao_mais", "+", "incrementar")
+gui.criar_botao("botao_menos", "-", "decrementar")

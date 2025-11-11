@@ -1,0 +1,44 @@
+#cronometro.lf
+print("A construir a aplicação de Cronómetro...")
+#--- 1. Variáveis de Estado da Aplicação ---
+let tempo_decorrido = 0.0  # Em segundos
+let esta_a_correr = false
+#--- 2. Funções de Lógica e Callbacks ---
+#A função principal que corre a cada 100ms
+define process atualizar_cronometro() {
+    # Só faz alguma coisa se o cronómetro estiver ligado
+    when esta_a_correr == true {
+        tempo_decorrido += 0.1
+        # Formata o tempo para MM:SS.d
+        let minutos = to_int(tempo_decorrido / 60)
+        let segundos = to_int(tempo_decorrido % 60)
+        let decimos = to_int((tempo_decorrido * 10) % 10)
+        # Garante que os números têm sempre 2 dígitos (ex: 01, 02...)
+        let min_str = f"0{minutos}"
+        when minutos > 9 { min_str = f"{minutos}" }
+        let seg_str = f"0{segundos}"
+        when segundos > 9 { seg_str = f"{segundos}" }
+        let tempo_formatado = f"{min_str}:{seg_str}.{decimos}"
+        gui.alterar_texto("visor", tempo_formatado)
+        # Agenda a si própria para ser chamada novamente
+        gui.agendar_atualizacao(100, "atualizar_cronometro")
+    }
+}
+#Chamada pelo botão "Iniciar/Parar"
+define process iniciar_parar() {
+    esta_a_correr = not esta_a_correr
+    # Se acabámos de o ligar, temos de iniciar o ciclo de atualização
+    when esta_a_correr == true {
+        atualizar_cronometro()
+    }
+}
+#Chamada pelo botão "Resetar"
+define process resetar() {
+    esta_a_correr = false
+    tempo_decorrido = 0.0
+    gui.alterar_texto("visor", "00:00.0")
+}
+#--- 3. Construção da Interface Gráfica ---
+gui.criar_rotulo_resultado("visor", "00:00.0")
+gui.criar_botao("botao_iniciar", "Iniciar/Parar", "iniciar_parar")
+gui.criar_botao("botao_resetar", "Resetar", "resetar")

@@ -1,0 +1,40 @@
+#bloco_de_notas.lf
+import "fs" as fs
+print("A construir a aplicação de Bloco de Notas...")
+#--- Funções de Lógica ---
+define process salvar_ficheiro() {
+    # 1. Abre o diálogo "Salvar Como..." do sistema
+    let caminho_ficheiro = gui.salvar_dialogo_ficheiro()
+        # 2. Se o utilizador não cancelou...
+    when caminho_ficheiro != "" {
+        print(f"A salvar o ficheiro em: {caminho_ficheiro}")
+        # 3. Obtém todo o texto da caixa de texto
+        let conteudo = gui.obter_texto_completo("caixa_principal")
+        # 4. Escreve o conteúdo no ficheiro escolhido
+        fs.write(caminho_ficheiro, conteudo)
+        # 5. Atualiza a barra de status
+        gui.alterar_texto("rotulo_status", f"Ficheiro salvo com sucesso!")
+    }
+}
+define process abrir_ficheiro() {
+    # 1. Abre o diálogo "Abrir Ficheiro..." do sistema
+    let caminho_ficheiro = gui.abrir_dialogo_ficheiro()
+    # 2. Se o utilizador escolheu um ficheiro...
+    when caminho_ficheiro != "" {
+        print(f"A abrir o ficheiro: {caminho_ficheiro}")
+        try {
+            # 3. Lê o conteúdo do ficheiro
+            let conteudo = fs.read(caminho_ficheiro)
+            # 4. Coloca o conteúdo na caixa de texto
+            gui.definir_texto_completo("caixa_principal", conteudo)
+            gui.alterar_texto("rotulo_status", f"Ficheiro '{caminho_ficheiro}' carregado.")
+        } catch (e: Exception) {
+            gui.alterar_texto("rotulo_status", f"Erro ao ler o ficheiro: {e}")
+        }
+    }
+}
+#--- Construção da Interface Gráfica ---
+gui.criar_botao("botao_abrir", "Abrir", "abrir_ficheiro")
+gui.criar_botao("botao_salvar", "Salvar", "salvar_ficheiro")
+gui.criar_caixa_texto("caixa_principal")
+gui.criar_rotulo("rotulo_status", "Bem-vindo ao Bloco de Notas Lucida-Flow!")

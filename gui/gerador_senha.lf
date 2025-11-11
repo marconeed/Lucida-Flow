@@ -1,0 +1,42 @@
+#gerador_senha.lf
+import "dado" as d
+print("A construir a aplicação Gerador de Senhas...")
+#--- Função de Lógica ---
+define process gerar_senha() {
+    let caracteres_base = "abcdefghijklmnopqrstuvwxyz"
+    let numeros = "0123456789"
+    let simbolos = "!@#$%&*()_+"
+    let caracteres_permitidos = caracteres_base
+    # Verifica os checkboxes e adiciona os conjuntos de caracteres
+    when gui.obter_valor_checkbox("check_maiusculas") == 1 {
+        caracteres_permitidos = caracteres_permitidos + caracteres_base.to_upper()
+    }
+    when gui.obter_valor_checkbox("check_numeros") == 1 {
+        caracteres_permitidos = caracteres_permitidos + numeros
+    }
+    when gui.obter_valor_checkbox("check_simbolos") == 1 {
+        caracteres_permitidos = caracteres_permitidos + simbolos
+    }
+    let comprimento = gui.obter_valor_slider("slider_comprimento")
+    let senha_final = ""
+    when comprimento > 0 {
+        let i = 0
+        while i < comprimento {
+            let indice_aleatorio = d.rolar_entre(0, caracteres_permitidos.length() - 1)
+            let caractere_aleatorio = caracteres_permitidos[indice_aleatorio]
+            senha_final = senha_final + caractere_aleatorio
+            i += 1
+        }
+    }
+    gui.alterar_texto("rotulo_senha", senha_final)
+}
+#--- Construção da Interface Gráfica ---
+gui.criar_rotulo("titulo", "Gerador de Palavras-passe")
+gui.criar_checkbox("check_maiusculas", "Incluir Letras Maiúsculas")
+gui.criar_checkbox("check_numeros", "Incluir Números")
+gui.criar_checkbox("check_simbolos", "Incluir Símbolos")
+gui.criar_rotulo("label_comprimento", "\nComprimento da Senha:")
+gui.criar_slider("slider_comprimento", 8, 32)
+gui.criar_botao("botao_gerar", "Gerar Senha", "gerar_senha")
+#Usa o nosso rótulo especial de resultado
+gui.criar_rotulo_resultado("rotulo_senha", "[Sua senha aparecerá aqui]")

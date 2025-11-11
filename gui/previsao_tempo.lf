@@ -1,0 +1,39 @@
+#previsao_tempo.lf
+import "web" as web
+import "json" as json
+print("A construir a aplicação de Meteorologia...")
+#--- Configuração ---
+#IMPORTANTE: Cole a sua API Key do OpenWeatherMap aqui
+const API_KEY = "SUA_API_KEY_AQUI"
+#--- Funções de Lógica ---
+define process obter_previsao() {
+    let cidade = gui.obter_texto("entrada_cidade")
+    when cidade == "" {
+        gui.alterar_texto("rotulo_resultado", "Por favor, insira o nome de uma cidade.")
+        return
+    }
+    gui.alterar_texto("rotulo_resultado", f"A procurar o tempo para {cidade}...")
+    # Monta a URL da API, pedindo unidades métricas e a resposta em português
+    let url = f"https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={API_KEY}&units=metric&lang=pt"
+    try {
+        # 1. Faz o pedido à internet
+        let resposta_json = web.get(url)
+        # 2. Analisa a resposta JSON
+        let dados = json.parse(resposta_json)
+        # 3. Extrai as informações de que precisamos
+        # A resposta vem num dicionário aninhado, que acedemos com []
+        let descricao = dados["weather"][0]["description"]
+        let temperatura = dados["main"]["temp"]
+        # 4. Atualiza a interface
+        let resultado_final = f"Tempo: {descricao}\nTemperatura: {temperatura}°C"
+        gui.alterar_texto("rotulo_resultado", resultado_final)
+    } catch (e: Exception) {
+        gui.alterar_texto("rotulo_resultado", "Erro: Cidade não encontrada ou problema de rede.")
+    }
+}
+#--- Construção da Interface Gráfica ---
+gui.criar_rotulo("rotulo_instrucao", "Digite o nome de uma cidade:")
+gui.criar_entrada("entrada_cidade")
+gui.criar_botao("botao_pesquisar", "Ver Previsão do Tempo", "obter_previsao")
+#Usamos o nosso rótulo de resultado especial para dar mais destaque
+gui.criar_rotulo_resultado("rotulo_resultado", "")

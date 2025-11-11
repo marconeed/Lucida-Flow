@@ -9,6 +9,8 @@ import datetime
 from lib.web import NATIVE_WEB_MODULE, register_semantics as register_web_semantics
 from lib.json import NATIVE_JSON_MODULE, register_semantics as register_json_semantics
 from lib.dado import NATIVE_DADO_MODULE, register_semantics as register_dado_semantics
+from lib.math import NATIVE_MATH_MODULE, register_semantics as register_math_semantics
+from lib.media import NATIVE_MEDIA_MODULE, register_semantics as register_media_semantics
 
 # --- Importações dos Símbolos da Lucida-Flow ---
 # (Necessário para a parte de descrição semântica)
@@ -115,6 +117,8 @@ NATIVE_MODULES = {
     "web": NATIVE_WEB_MODULE,
     "json": NATIVE_JSON_MODULE,
     "dado": NATIVE_DADO_MODULE,
+    "math": NATIVE_MATH_MODULE,
+    "media": NATIVE_MEDIA_MODULE,
 }
 
 # ==============================================================================
@@ -208,7 +212,9 @@ NATIVE_MODULES_SEMANTICS = {
     "datetime": datetime_semantic_scope,
     "web": register_web_semantics(),
     "json": register_json_semantics(),
-     "dado": register_dado_semantics(),
+    "dado": register_dado_semantics(),
+    "math": register_math_semantics(),
+    "media": register_media_semantics(),
 }
 
 # ==============================================================================

@@ -7,6 +7,8 @@ from lucida_analyzer import SemanticAnalyzer
 from lucida_interpreter import Interpreter
 from lucida_errors import LucidaError
 from lucida_ast import ProgramNode # Import necessário para o "truque" do REPL
+from lib.parser_patch import apply_patch
+apply_patch()
 
 # --- Função para executar um trecho de código ---
 def run_code(source_code, analyzer, interpreter):
